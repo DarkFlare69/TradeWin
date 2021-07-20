@@ -24,7 +24,7 @@
 
 Normal View:
 
-![image](https://user-images.githubusercontent.com/10453867/126365686-199c8fe1-36a2-4d98-8ea3-e83ebc9a8855.png)
+![image](https://user-images.githubusercontent.com/10453867/126365860-bef265c7-da84-495b-a222-0caa293e8ba4.png)
 
  
  Trade Logger:
