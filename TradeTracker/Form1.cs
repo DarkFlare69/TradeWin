@@ -858,7 +858,15 @@ namespace TradeTracker
         {
             using (var client = new WebClient())
             {
-                client.DownloadFile("https://github.com/DarkFlare69/Gateway-To-NTR-Converter/raw/master/Gateway%20To%20NTR%20Converter/bin/Debug/Gateway%20To%20NTR%20Converter.exe", "TradeWin-update.exe");
+                try
+                {
+                    client.DownloadFile("https://github.com/DarkFlare69/TradeWin/raw/main/TradeTracker/bin/Debug/TradeWin.exe", "TradeWin-update.exe");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Unable to retrieve update file! Please check your Internet connection.", "TradeWin Updater");
+                    return;
+                }
                 if (File.Exists(Process.GetCurrentProcess().MainModule.FileName + ".bak")) // do this in Form1_Load too
                 {
                     File.Delete(Process.GetCurrentProcess().MainModule.FileName + ".bak");
@@ -873,7 +881,8 @@ namespace TradeTracker
                 }
                 else if (new FileInfo(Process.GetCurrentProcess().MainModule.FileName).Length == new FileInfo(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe").Length)
                 {
-                    MessageBox.Show("You are currently using the latest version of this software. Release: " + versionString, "TradeWin Updater");
+                    MessageBox.Show("You are currently using the last version of this software. Release: " + versionString, "TradeWin Updater");
+                    File.Delete(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe");
                 }
             }
         }
