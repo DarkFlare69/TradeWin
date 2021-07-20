@@ -31,3 +31,7 @@ Normal View:
 
  ![image](https://user-images.githubusercontent.com/10453867/126365563-873184e4-65fd-4422-b422-a8d0c77f570a.png)
 
+Settings:
+
+![image](https://user-images.githubusercontent.com/10453867/126366445-7df4001f-103e-4e0c-8d97-634921b62fc5.png)
+
