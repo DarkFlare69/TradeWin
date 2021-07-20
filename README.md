@@ -9,10 +9,9 @@
  
  # Features
   -Active Trades panel to track ongoing trades and the option to log as a trade when complete
- -History panel to view and add to trading history
-  -Import multiple file formats
- - Export multiple file formats
-  -Auto-saving and auto-loading
-  -Updater
- 
+-History panel to view and add to trading history
+-Import multiple file formats
+-Export multiple file formats
+-Auto-saving and auto-loading
+-Updater
  
