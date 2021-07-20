@@ -112,7 +112,7 @@ namespace TradeTracker
                             {
                                 string line;
                                 int counter = 0;
-                                StreamReader file = new System.IO.StreamReader(watchPath);
+                                StreamReader file = new StreamReader(watchPath);
                                 while ((line = file.ReadLine()) != null)
                                 {
                                     if (line.Length < 16)
@@ -143,7 +143,7 @@ namespace TradeTracker
                             {
                                 string line;
                                 int counter = 0;
-                                StreamReader file = new System.IO.StreamReader(historyPath);
+                                StreamReader file = new StreamReader(historyPath);
                                 while ((line = file.ReadLine()) != null)
                                 {
                                     if (line.Length < 16 || !(line.IndexOf(',') - line.IndexOf(':') > 1))
@@ -854,6 +854,37 @@ namespace TradeTracker
             }
         }
 
+    const int BYTES_TO_READ = sizeof(Int64);
+
+    static bool FilesAreEqual(FileInfo first, FileInfo second)
+    {
+        if (first.Length != second.Length)
+            return false;
+
+        if (string.Equals(first.FullName, second.FullName, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        int iterations = (int)Math.Ceiling((double)first.Length / BYTES_TO_READ);
+
+        using (FileStream fs1 = first.OpenRead())
+        using (FileStream fs2 = second.OpenRead())
+        {
+            byte[] one = new byte[BYTES_TO_READ];
+            byte[] two = new byte[BYTES_TO_READ];
+
+            for (int i = 0; i < iterations; i++)
+            {
+                 fs1.Read(one, 0, BYTES_TO_READ);
+                 fs2.Read(two, 0, BYTES_TO_READ);
+
+                if (BitConverter.ToInt64(one,0) != BitConverter.ToInt64(two,0))
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var client = new WebClient())
@@ -864,6 +895,10 @@ namespace TradeTracker
                 }
                 catch (Exception ex)
                 {
+                    if (File.Exists(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe")) // do this in Form1_Load too
+                    {
+                        File.Delete(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe");
+                    }
                     MessageBox.Show("Unable to retrieve update file! Please check your Internet connection.", "TradeWin Updater");
                     return;
                 }
@@ -871,7 +906,7 @@ namespace TradeTracker
                 {
                     File.Delete(Process.GetCurrentProcess().MainModule.FileName + ".bak");
                 }
-                if (new FileInfo(Process.GetCurrentProcess().MainModule.FileName).Length != new FileInfo(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe").Length)
+                if (!FilesAreEqual(new FileInfo(Process.GetCurrentProcess().MainModule.FileName), new FileInfo(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe")))
                 {
                     File.Move(Process.GetCurrentProcess().MainModule.FileName, Process.GetCurrentProcess().MainModule.FileName + ".bak");
                     File.Move(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe", Process.GetCurrentProcess().MainModule.FileName);
@@ -879,7 +914,7 @@ namespace TradeTracker
                     Process.Start(Process.GetCurrentProcess().MainModule.FileName);
                     Close();
                 }
-                else if (new FileInfo(Process.GetCurrentProcess().MainModule.FileName).Length == new FileInfo(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe").Length)
+                else
                 {
                     MessageBox.Show("You are currently using the last version of this software. Release: " + versionString, "TradeWin Updater");
                     File.Delete(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe");
