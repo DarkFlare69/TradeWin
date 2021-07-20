@@ -20,10 +20,14 @@
 
 -Updater
 
-Normal View
+# Screenshots
+
+Normal View:
+
 ![image](https://user-images.githubusercontent.com/10453867/126365686-199c8fe1-36a2-4d98-8ea3-e83ebc9a8855.png)
 
  
- Trade Logger
+ Trade Logger:
+
  ![image](https://user-images.githubusercontent.com/10453867/126365563-873184e4-65fd-4422-b422-a8d0c77f570a.png)
 
