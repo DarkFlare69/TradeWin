@@ -8,11 +8,11 @@
    The peace of mind of knowing my trades are stored in an offline file format and not locked behind a monthly paywall from a 3rd party company just to access basic features through a clunky UI.
  
  # Features
- -Active Trades panel to track ongoing trades and the option to log as a trade when complete
- -History panel to view and add to trading history
- -Import multiple file formats
- -Export multiple file formats
- -Auto-saving and auto-loading
- -Updater
+  -Active Trades panel to track ongoing trades and the option to log as a trade when complete
+  -History panel to view and add to trading history
+  -Import multiple file formats
+  - Export multiple file formats
+  -Auto-saving and auto-loading
+  -Updater
  
  
