@@ -922,6 +922,11 @@ namespace TradeTracker
             }
         }
 
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
         private void stocksToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
         {
             stocksToolStripMenuItem.ForeColor = Color.White;
