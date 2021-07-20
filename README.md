@@ -1,9 +1,6 @@
 # TradeWin
  TradeWin is a free, Windows based stock trade tracker/logger. Many trade loggers online charge monthly or yearly subscription fees just to access simple features such as logging an unlimited number of trades and importing from history files. TradeWin stores your data in a proprietary offline file format and allows communication between various file formats, such as Fidelity trading history files, txt watchlists, and more. The responsive and intuitive UI allows for effecient tracking, especially for scalpers or other short term traders.
  
- ![image](https://user-images.githubusercontent.com/10453867/126365052-92415c83-1339-40ec-9940-cc38ca7ee1eb.png)
-(Default View)
- 
  # What is this not indended to be?
   This is not intended to be a replacement to any other tracking software. This is simply a personal project that I made to allow me to monitor my performance better on Fidelity since Active Trader Pro has a horrendous UI for daytraders. There may be issues with this, but from my testing, it works as long as you only use it as intended. If you aren't seriously trying to track your daytrades and improve your performance, then you shouldn't be using this. You may find a way to break the program.
   
@@ -23,3 +20,5 @@
 
 -Updater
  
+ ![image](https://user-images.githubusercontent.com/10453867/126365052-92415c83-1339-40ec-9940-cc38ca7ee1eb.png)
+(Default View)
