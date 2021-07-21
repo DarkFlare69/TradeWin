@@ -21,3 +21,4 @@ F:\VS\TradeWin\TradeTracker\obj\Debug\TradeTracker.csproj.GenerateResource.cache
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeTracker.csproj.CoreCompileInputs.cache
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeWin.exe
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeWin.pdb
+F:\VS\TradeWin\TradeTracker\obj\Debug\TradeTracker.csprojAssemblyReference.cache
