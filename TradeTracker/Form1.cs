@@ -146,7 +146,7 @@ namespace TradeTracker
                                 StreamReader file = new StreamReader(historyPath);
                                 while ((line = file.ReadLine()) != null)
                                 {
-                                    if (line.Length < 16 || !(line.IndexOf(',') - line.IndexOf(':') > 1))
+                                    if (line.Length < 17 || !(line.IndexOf(',') - line.IndexOf(':') > 1))
                                         continue;
                                     //DataRow dr = history.NewRow();
                                     //dr["RowCount"] = "";
@@ -159,12 +159,13 @@ namespace TradeTracker
                                     THistory.Rows[counter].Cells["Earnings"].Value = line.Substring(GetNth(line, ',', 5), GetNth(line, ',', 6) - GetNth(line, ',', 5) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
                                     THistory.Rows[counter].Cells["Amount"].Value = line.Substring(GetNth(line, ',', 6), GetNth(line, ',', 7) - GetNth(line, ',', 6) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
                                     THistory.Rows[counter].Cells["Earn"].Value = line.Substring(GetNth(line, ',', 7), GetNth(line, ',', 8) - GetNth(line, ',', 7) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
-                                    THistory.Rows[counter].Cells["GainLoss"].Value = line.Substring(GetNth(line, ',', 8), GetNth(line, ',', 9) - GetNth(line, ',', 8) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
-                                    THistory.Rows[counter].Cells["Strategy"].Value = line.Substring(GetNth(line, ',', 9), GetNth(line, ',', 10) - GetNth(line, ',', 9) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
-                                    THistory.Rows[counter].Cells["MajorLevels"].Value = line.Substring(GetNth(line, ',', 10), GetNth(line, ',', 11) - GetNth(line, ',', 10) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
-                                    THistory.Rows[counter].Cells["Strengths"].Value = line.Substring(GetNth(line, ',', 11), GetNth(line, ',', 12) - GetNth(line, ',', 11) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
-                                    THistory.Rows[counter].Cells["Weaknesses"].Value = line.Substring(GetNth(line, ',', 12), GetNth(line, ',', 13) - GetNth(line, ',', 12) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
-                                    THistory.Rows[counter].Cells["Notes2"].Value = line.Substring(GetNth(line, ',', 13), GetNth(line, ',', 14) - GetNth(line, ',', 13) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
+                                    THistory.Rows[counter].Cells["EPS"].Value = line.Substring(GetNth(line, ',', 8), GetNth(line, ',', 9) - GetNth(line, ',', 8) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
+                                    THistory.Rows[counter].Cells["GainLoss"].Value = line.Substring(GetNth(line, ',', 9), GetNth(line, ',', 10) - GetNth(line, ',', 9) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
+                                    THistory.Rows[counter].Cells["Strategy"].Value = line.Substring(GetNth(line, ',', 10), GetNth(line, ',', 11) - GetNth(line, ',', 10) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
+                                    THistory.Rows[counter].Cells["MajorLevels"].Value = line.Substring(GetNth(line, ',', 11), GetNth(line, ',', 12) - GetNth(line, ',', 11) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
+                                    THistory.Rows[counter].Cells["Strengths"].Value = line.Substring(GetNth(line, ',', 12), GetNth(line, ',', 13) - GetNth(line, ',', 12) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
+                                    THistory.Rows[counter].Cells["Weaknesses"].Value = line.Substring(GetNth(line, ',', 13), GetNth(line, ',', 14) - GetNth(line, ',', 13) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
+                                    THistory.Rows[counter].Cells["Notes2"].Value = line.Substring(GetNth(line, ',', 14), GetNth(line, ',', 15) - GetNth(line, ',', 14) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
                                     counter++;
                                     //this.CoWaitForMultipleHandles();
                                 }
@@ -224,7 +225,7 @@ namespace TradeTracker
                         counter = THistory.Rows.Count > 1 ? THistory.Rows.Count - 1 : 0;
                         for (int i = 0; i < match.Count; i++)
                         {
-                            if (match[i].ToString().Contains(",") && match[i].ToString().Length > 15) // All compatible lines
+                            if (match[i].ToString().Contains(",") && match[i].ToString().Length > 16) // All compatible lines
                             {
                                 history.Rows.Add();
                                 THistory.Rows[counter].Cells["Symbol"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ':', 1), GetNth(match[i].ToString(), ',', 1) - 1 - GetNth(match[i].ToString(), ':', 1));
@@ -235,12 +236,13 @@ namespace TradeTracker
                                 THistory.Rows[counter].Cells["Earnings"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 5), GetNth(match[i].ToString(), ',', 6) - 1 - GetNth(match[i].ToString(), ',', 5));
                                 THistory.Rows[counter].Cells["Amount"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 6), GetNth(match[i].ToString(), ',', 7) - 1 - GetNth(match[i].ToString(), ',', 6));
                                 THistory.Rows[counter].Cells["Earn"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 7), GetNth(match[i].ToString(), ',', 8) - 1 - GetNth(match[i].ToString(), ',', 7));
-                                THistory.Rows[counter].Cells["GainLoss"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 8), GetNth(match[i].ToString(), ',', 9) - 1 - GetNth(match[i].ToString(), ',', 8));
-                                THistory.Rows[counter].Cells["Strategy"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 9), GetNth(match[i].ToString(), ',', 10) - 1 - GetNth(match[i].ToString(), ',', 9));
-                                THistory.Rows[counter].Cells["MajorLevels"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 10), GetNth(match[i].ToString(), ',', 11) - 1 - GetNth(match[i].ToString(), ',', 10));
-                                THistory.Rows[counter].Cells["Strengths"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 11), GetNth(match[i].ToString(), ',', 12) - 1 - GetNth(match[i].ToString(), ',', 11));
-                                THistory.Rows[counter].Cells["Weaknesses"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 12), GetNth(match[i].ToString(), ',', 13) - 1 - GetNth(match[i].ToString(), ',', 12));
-                                THistory.Rows[counter].Cells["Notes2"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 13), GetNth(match[i].ToString(), ',', 14) - 1 - GetNth(match[i].ToString(), ',', 13));
+                                THistory.Rows[counter].Cells["EPS"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 8), GetNth(match[i].ToString(), ',', 9) - 1 - GetNth(match[i].ToString(), ',', 8));
+                                THistory.Rows[counter].Cells["GainLoss"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 9), GetNth(match[i].ToString(), ',', 10) - 1 - GetNth(match[i].ToString(), ',', 9));
+                                THistory.Rows[counter].Cells["Strategy"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 10), GetNth(match[i].ToString(), ',', 11) - 1 - GetNth(match[i].ToString(), ',', 10));
+                                THistory.Rows[counter].Cells["MajorLevels"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 11), GetNth(match[i].ToString(), ',', 12) - 1 - GetNth(match[i].ToString(), ',', 11));
+                                THistory.Rows[counter].Cells["Strengths"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 12), GetNth(match[i].ToString(), ',', 13) - 1 - GetNth(match[i].ToString(), ',', 12));
+                                THistory.Rows[counter].Cells["Weaknesses"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 13), GetNth(match[i].ToString(), ',', 14) - 1 - GetNth(match[i].ToString(), ',', 13));
+                                THistory.Rows[counter].Cells["Notes2"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 14), GetNth(match[i].ToString(), ',', 15) - 1 - GetNth(match[i].ToString(), ',', 14));
                                 counter++;
                             }
                         }
@@ -562,6 +564,7 @@ namespace TradeTracker
                 THistory.Rows[THistory.CurrentRow.Index].Cells["Earnings"].Value = "";
                 THistory.Rows[THistory.CurrentRow.Index].Cells["Amount"].Value = "";
                 THistory.Rows[THistory.CurrentRow.Index].Cells["Earn"].Value = "";
+                THistory.Rows[THistory.CurrentRow.Index].Cells["EPS"].Value = "";
                 THistory.Rows[THistory.CurrentRow.Index].Cells["GainLoss"].Value = "";
                 THistory.Rows[THistory.CurrentRow.Index].Cells["Strategy"].Value = "";
                 THistory.Rows[THistory.CurrentRow.Index].Cells["MajorLevels"].Value = "";
@@ -628,7 +631,7 @@ namespace TradeTracker
                         counter = THistory.Rows.Count > 1 ? THistory.Rows.Count - 1 : 0;
                         for (int i = 0; i < match.Count; i++)
                         {
-                            if (match[i].ToString().Contains(",") && match[i].ToString().Length > 15) // All compatible lines
+                            if (match[i].ToString().Contains(",") && match[i].ToString().Length > 16) // All compatible lines
                             {
                                 history.Rows.Add();
                                 THistory.Rows[counter].Cells["Symbol"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ':', 1), GetNth(match[i].ToString(), ',', 1) - 1 - GetNth(match[i].ToString(), ':', 1));
@@ -639,12 +642,13 @@ namespace TradeTracker
                                 THistory.Rows[counter].Cells["Earnings"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 5), GetNth(match[i].ToString(), ',', 6) - 1 - GetNth(match[i].ToString(), ',', 5));
                                 THistory.Rows[counter].Cells["Amount"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 6), GetNth(match[i].ToString(), ',', 7) - 1 - GetNth(match[i].ToString(), ',', 6));
                                 THistory.Rows[counter].Cells["Earn"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 7), GetNth(match[i].ToString(), ',', 8) - 1 - GetNth(match[i].ToString(), ',', 7));
-                                THistory.Rows[counter].Cells["GainLoss"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 8), GetNth(match[i].ToString(), ',', 9) - 1 - GetNth(match[i].ToString(), ',', 8));
-                                THistory.Rows[counter].Cells["Strategy"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 9), GetNth(match[i].ToString(), ',', 10) - 1 - GetNth(match[i].ToString(), ',', 9));
-                                THistory.Rows[counter].Cells["MajorLevels"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 10), GetNth(match[i].ToString(), ',', 11) - 1 - GetNth(match[i].ToString(), ',', 10));
-                                THistory.Rows[counter].Cells["Strengths"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 11), GetNth(match[i].ToString(), ',', 12) - 1 - GetNth(match[i].ToString(), ',', 11));
-                                THistory.Rows[counter].Cells["Weaknesses"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 12), GetNth(match[i].ToString(), ',', 13) - 1 - GetNth(match[i].ToString(), ',', 12));
-                                THistory.Rows[counter].Cells["Notes2"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 13), GetNth(match[i].ToString(), ',', 14) - 1 - GetNth(match[i].ToString(), ',', 13));
+                                THistory.Rows[counter].Cells["EPS"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 8), GetNth(match[i].ToString(), ',', 9) - 1 - GetNth(match[i].ToString(), ',', 8));
+                                THistory.Rows[counter].Cells["GainLoss"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 9), GetNth(match[i].ToString(), ',', 10) - 1 - GetNth(match[i].ToString(), ',', 9));
+                                THistory.Rows[counter].Cells["Strategy"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 10), GetNth(match[i].ToString(), ',', 11) - 1 - GetNth(match[i].ToString(), ',', 10));
+                                THistory.Rows[counter].Cells["MajorLevels"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 11), GetNth(match[i].ToString(), ',', 12) - 1 - GetNth(match[i].ToString(), ',', 11));
+                                THistory.Rows[counter].Cells["Strengths"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 12), GetNth(match[i].ToString(), ',', 13) - 1 - GetNth(match[i].ToString(), ',', 12));
+                                THistory.Rows[counter].Cells["Weaknesses"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 13), GetNth(match[i].ToString(), ',', 14) - 1 - GetNth(match[i].ToString(), ',', 13));
+                                THistory.Rows[counter].Cells["Notes2"].Value = match[i].ToString().Substring(GetNth(match[i].ToString(), ',', 14), GetNth(match[i].ToString(), ',', 15) - 1 - GetNth(match[i].ToString(), ',', 14));
                                 counter++;
                             }
                         }
@@ -765,32 +769,28 @@ namespace TradeTracker
                 float p = 0, ea = 0, q = 0;
                 if (THistory.Rows[i].Cells[2].Value != null && THistory.Rows[i].Cells["Price"].Value != null && float.TryParse(THistory.Rows[i].Cells["Price"].Value.ToString(), out p) && THistory.Rows[i].Cells["Earnings"].Value != null && float.TryParse(THistory.Rows[i].Cells["Earnings"].Value.ToString(), out ea))
                 {
-                    if (p < ea && !THistory.Rows[i].Cells[2].Value.ToString().Contains("Short"))
-                    {
-                        THistory.Rows[i].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
-                    }
-                    else if (p < ea && THistory.Rows[i].Cells[2].Value.ToString().Contains("Short"))
+                    if (p > ea)
                     {
                         THistory.Rows[i].DefaultCellStyle.BackColor = Color.LightCoral;
+                    }
+                    if (p < ea)
+                    {
+                        THistory.Rows[i].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
                     }
                     if (p > ea && THistory.Rows[i].Cells[2].Value.ToString().Contains("Short"))
                     {
                         THistory.Rows[i].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
                     }
-                    else if (p > ea && !THistory.Rows[i].Cells[2].Value.ToString().Contains("Short"))
+                    if (p < ea && THistory.Rows[i].Cells[2].Value.ToString().Contains("Short"))
                     {
                         THistory.Rows[i].DefaultCellStyle.BackColor = Color.LightCoral;
                     }
-                    //MessageBox.Show(THistory.Rows[i].Cells[2].Value.ToString());
+                    THistory.Rows[i].Cells["EPS"].Value = Math.Round(Math.Abs(ea - p), 4);
                     if (THistory.Rows[i].Cells["Quantity"].Value != null && float.TryParse(THistory.Rows[i].Cells["Quantity"].Value.ToString(), out q))
                     {
                         THistory.Rows[i].Cells["Amount"].Value = (p * q).ToString();
                         THistory.Rows[i].Cells["Earn"].Value = (q * ea).ToString();
-                        double GainLoss = -(double)((p * q) - (ea * q));
-                        if (THistory.Rows[i].Cells[2].Value.ToString().Contains("Short"))
-                        {
-                            GainLoss = -GainLoss;
-                        }
+                        double GainLoss = Math.Abs((double)((p * q) - (ea * q)));
                         THistory.Rows[i].Cells["GainLoss"].Value = Math.Round(GainLoss, 2).ToString();
 
                     }

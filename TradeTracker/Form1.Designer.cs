@@ -64,23 +64,10 @@ namespace TradeTracker
             this.button2 = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.THistory = new System.Windows.Forms.DataGridView();
-            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Side = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Earnings = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Earn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GainLoss = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Strategy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MajorLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Strengths = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Weaknesses = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button3 = new System.Windows.Forms.Button();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stocksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importWatchlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,7 +98,21 @@ namespace TradeTracker
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Side = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Earnings = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Earn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EPS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GainLoss = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Strategy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MajorLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Strengths = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Weaknesses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Watch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.THistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -299,6 +300,7 @@ namespace TradeTracker
             this.Earnings,
             this.Amount,
             this.Earn,
+            this.EPS,
             this.GainLoss,
             this.Strategy,
             this.MajorLevels,
@@ -324,109 +326,6 @@ namespace TradeTracker
             this.THistory.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.THistory_CellValueChanged);
             this.THistory.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.THistory_RowsAdded);
             this.THistory.Enter += new System.EventHandler(this.THistory_Enter);
-            // 
-            // Symbol
-            // 
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Symbol.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Symbol.FillWeight = 50F;
-            this.Symbol.HeaderText = "Symbol";
-            this.Symbol.Name = "Symbol";
-            // 
-            // Date
-            // 
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Date.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Date.FillWeight = 70F;
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            // 
-            // Side
-            // 
-            this.Side.FillWeight = 90F;
-            this.Side.HeaderText = "Position";
-            this.Side.Name = "Side";
-            // 
-            // Quantity
-            // 
-            this.Quantity.FillWeight = 50F;
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // Price
-            // 
-            this.Price.FillWeight = 85F;
-            this.Price.HeaderText = "Price Per Share";
-            this.Price.Name = "Price";
-            // 
-            // Earnings
-            // 
-            this.Earnings.FillWeight = 99F;
-            this.Earnings.HeaderText = "Earnings Per Share";
-            this.Earnings.Name = "Earnings";
-            // 
-            // Amount
-            // 
-            dataGridViewCellStyle13.NullValue = null;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Amount.FillWeight = 80F;
-            this.Amount.HeaderText = "Total Cost";
-            this.Amount.Name = "Amount";
-            // 
-            // Earn
-            // 
-            this.Earn.FillWeight = 85F;
-            this.Earn.HeaderText = "Total Earnings";
-            this.Earn.Name = "Earn";
-            // 
-            // GainLoss
-            // 
-            dataGridViewCellStyle14.Format = "C2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.GainLoss.DefaultCellStyle = dataGridViewCellStyle14;
-            this.GainLoss.FillWeight = 50F;
-            this.GainLoss.HeaderText = "G/L $";
-            this.GainLoss.Name = "GainLoss";
-            // 
-            // Strategy
-            // 
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Strategy.DefaultCellStyle = dataGridViewCellStyle15;
-            this.Strategy.HeaderText = "Identified Strategy";
-            this.Strategy.Name = "Strategy";
-            // 
-            // MajorLevels
-            // 
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MajorLevels.DefaultCellStyle = dataGridViewCellStyle16;
-            this.MajorLevels.FillWeight = 105F;
-            this.MajorLevels.HeaderText = "Identified Major Levels";
-            this.MajorLevels.Name = "MajorLevels";
-            // 
-            // Strengths
-            // 
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Strengths.DefaultCellStyle = dataGridViewCellStyle17;
-            this.Strengths.FillWeight = 90F;
-            this.Strengths.HeaderText = "Strengths";
-            this.Strengths.Name = "Strengths";
-            // 
-            // Weaknesses
-            // 
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Weaknesses.DefaultCellStyle = dataGridViewCellStyle18;
-            this.Weaknesses.FillWeight = 95F;
-            this.Weaknesses.HeaderText = "Weaknesses";
-            this.Weaknesses.Name = "Weaknesses";
-            // 
-            // Notes2
-            // 
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Notes2.DefaultCellStyle = dataGridViewCellStyle19;
-            this.Notes2.FillWeight = 128F;
-            this.Notes2.HeaderText = "Notes";
-            this.Notes2.Name = "Notes2";
             // 
             // splitContainer1
             // 
@@ -474,10 +373,17 @@ namespace TradeTracker
             this.fileToolStripMenuItem.DropDownClosed += new System.EventHandler(this.fileToolStripMenuItem_DropDownClosed);
             this.fileToolStripMenuItem.DropDownOpened += new System.EventHandler(this.fileToolStripMenuItem_DropDownOpened);
             // 
+            // restartToolStripMenuItem
+            // 
+            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.restartToolStripMenuItem.Text = "Restart";
+            this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -802,12 +708,114 @@ namespace TradeTracker
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // restartToolStripMenuItem
+            // Symbol
             // 
-            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.restartToolStripMenuItem.Text = "Restart";
-            this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Symbol.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Symbol.FillWeight = 50F;
+            this.Symbol.HeaderText = "Symbol";
+            this.Symbol.Name = "Symbol";
+            // 
+            // Date
+            // 
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Date.DefaultCellStyle = dataGridViewCellStyle12;
+            this.Date.FillWeight = 70F;
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            // 
+            // Side
+            // 
+            this.Side.FillWeight = 80F;
+            this.Side.HeaderText = "Position";
+            this.Side.Name = "Side";
+            // 
+            // Quantity
+            // 
+            this.Quantity.FillWeight = 50F;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Price
+            // 
+            this.Price.FillWeight = 85F;
+            this.Price.HeaderText = "Entry Price";
+            this.Price.Name = "Price";
+            // 
+            // Earnings
+            // 
+            this.Earnings.FillWeight = 90F;
+            this.Earnings.HeaderText = "Exit Price";
+            this.Earnings.Name = "Earnings";
+            // 
+            // Amount
+            // 
+            dataGridViewCellStyle13.NullValue = null;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Amount.FillWeight = 80F;
+            this.Amount.HeaderText = "Total Cost";
+            this.Amount.Name = "Amount";
+            // 
+            // Earn
+            // 
+            this.Earn.FillWeight = 85F;
+            this.Earn.HeaderText = "Total Earnings";
+            this.Earn.Name = "Earn";
+            // 
+            // EPS
+            // 
+            this.EPS.FillWeight = 50F;
+            this.EPS.HeaderText = "EPS $";
+            this.EPS.Name = "EPS";
+            // 
+            // GainLoss
+            // 
+            dataGridViewCellStyle14.Format = "C2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.GainLoss.DefaultCellStyle = dataGridViewCellStyle14;
+            this.GainLoss.FillWeight = 50F;
+            this.GainLoss.HeaderText = "G/L $";
+            this.GainLoss.Name = "GainLoss";
+            // 
+            // Strategy
+            // 
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Strategy.DefaultCellStyle = dataGridViewCellStyle15;
+            this.Strategy.HeaderText = "Strategy";
+            this.Strategy.Name = "Strategy";
+            // 
+            // MajorLevels
+            // 
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MajorLevels.DefaultCellStyle = dataGridViewCellStyle16;
+            this.MajorLevels.FillWeight = 105F;
+            this.MajorLevels.HeaderText = "Major Levels";
+            this.MajorLevels.Name = "MajorLevels";
+            // 
+            // Strengths
+            // 
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Strengths.DefaultCellStyle = dataGridViewCellStyle17;
+            this.Strengths.FillWeight = 90F;
+            this.Strengths.HeaderText = "Strengths";
+            this.Strengths.Name = "Strengths";
+            // 
+            // Weaknesses
+            // 
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Weaknesses.DefaultCellStyle = dataGridViewCellStyle18;
+            this.Weaknesses.FillWeight = 95F;
+            this.Weaknesses.HeaderText = "Weaknesses";
+            this.Weaknesses.Name = "Weaknesses";
+            // 
+            // Notes2
+            // 
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Notes2.DefaultCellStyle = dataGridViewCellStyle19;
+            this.Notes2.FillWeight = 128F;
+            this.Notes2.HeaderText = "Notes";
+            this.Notes2.Name = "Notes2";
             // 
             // Form1
             // 
@@ -894,6 +902,8 @@ namespace TradeTracker
         public System.Windows.Forms.Button button10;
         public System.Windows.Forms.Button button11;
         public System.Windows.Forms.Button button12;
+        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Side;
@@ -902,14 +912,13 @@ namespace TradeTracker
         private System.Windows.Forms.DataGridViewTextBoxColumn Earnings;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Earn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EPS;
         private System.Windows.Forms.DataGridViewTextBoxColumn GainLoss;
         private System.Windows.Forms.DataGridViewTextBoxColumn Strategy;
         private System.Windows.Forms.DataGridViewTextBoxColumn MajorLevels;
         private System.Windows.Forms.DataGridViewTextBoxColumn Strengths;
         private System.Windows.Forms.DataGridViewTextBoxColumn Weaknesses;
         private System.Windows.Forms.DataGridViewTextBoxColumn Notes2;
-        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
     }
 }
 
