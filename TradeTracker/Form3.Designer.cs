@@ -46,6 +46,8 @@ namespace TradeTracker
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,7 +152,7 @@ namespace TradeTracker
             this.groupBox1.Controls.Add(this.checkBox5);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(216, 8);
+            this.groupBox1.Location = new System.Drawing.Point(216, 39);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(186, 102);
             this.groupBox1.TabIndex = 7;
@@ -231,12 +233,33 @@ namespace TradeTracker
             this.checkBox9.UseVisualStyleBackColor = true;
             this.checkBox9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.checkBox9_MouseClick);
             // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox10.ForeColor = System.Drawing.Color.White;
+            this.checkBox10.Location = new System.Drawing.Point(217, 12);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(95, 20);
+            this.checkBox10.TabIndex = 9;
+            this.checkBox10.Text = "Default Qty:";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(309, 12);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(93, 20);
+            this.textBox5.TabIndex = 10;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(85)))), ((int)(((byte)(120)))));
             this.ClientSize = new System.Drawing.Size(413, 210);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.checkBox10);
             this.Controls.Add(this.checkBox9);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
@@ -280,5 +303,7 @@ namespace TradeTracker
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.TextBox textBox4;
         public System.Windows.Forms.CheckBox checkBox9;
+        public System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

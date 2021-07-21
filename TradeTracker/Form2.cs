@@ -26,6 +26,7 @@ namespace TradeTracker
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = table;
             //table.NewRow();
+            dataGridView1.Rows[0].Cells["Quantity"].Value = _form1Instance.commissions[3];
             if (populate)
             {
                 dataGridView1.Rows[0].Cells["Symbol"].Value = _form1Instance.Watch.Rows[_form1Instance.Watch.CurrentCell.RowIndex].Cells["Column1"].Value;

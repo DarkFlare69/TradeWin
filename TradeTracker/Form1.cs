@@ -15,7 +15,7 @@ namespace TradeTracker
         static DataTable watchList = new DataTable(), history = new DataTable();
         public static bool watchActive, autoSaveWatch, autoSaveTHistory, perSale = false, perShare = false, perDollar = false, loaded = false;
         static string versionString = "v1.0", watchPath, historyPath;
-        public float[] commissions = new float[3];
+        public float[] commissions = new float[4];
         public Form1()
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace TradeTracker
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 watchPath += "\\watchlist.atw";
                 historyPath += "\\history.tw";
@@ -93,18 +93,18 @@ namespace TradeTracker
                 {
                     using (FileStream fs = File.Create(settingPath))
                     {
-                        byte[] settings = { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                        fs.Write(settings, 0, 20);
+                        byte[] settings = { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 };
+                        fs.Write(settings, 0, 24);
                     }
                 }
-                catch (Exception ex){}
+                catch {}
                 MessageBox.Show("TradeWin is designed to be a free, open source trade logging application. This allows importing trade history from Fidelity, exporting/loading from TradeWin proprietary format (.tw) and more!\n\nTraders are intended to make trading decisions based on their own sources. TradeWin is simply an additional tool to keep for traders to keep an eye on their daytrades and log performance on a free, offline platform.\n\nNotable features include auto-saving and auto-loading the watchlist/history (configurable in settings), and importing/exporting to multiple file formats. Most other necessary basic features are available.", "Welcome to TradeWin! - " + versionString);
             }
             if (File.Exists(settingPath))
             {
                 using (BinaryReader fileStream = new BinaryReader(File.Open(settingPath, FileMode.Open)))
                 {
-                    for (int i = 0; i < 11; i++)
+                    for (int i = 0; i < 12; i++)
                     {
                         if (i == 0 && fileStream.ReadByte() == 1) // Import Watchlist
                         {
@@ -119,8 +119,6 @@ namespace TradeTracker
                                         continue;
                                     if (line.IndexOf(',') - line.IndexOf(':') > 1)
                                     {
-                                        //DataRow dr = watchList.NewRow();
-                                        //dr["RowCount"] = "";
                                         watchList.Rows.Add();
                                         Watch.Rows[counter].Cells["Column1"].Value = line.Substring(line.IndexOf(':') + 1, line.IndexOf(',') - line.IndexOf(':') - 1);
                                         Watch.Rows[counter].Cells["Column3"].Value = line.Substring(GetNth(line, ',', 1), GetNth(line, ',', 2) - GetNth(line, ',', 1) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
@@ -148,8 +146,6 @@ namespace TradeTracker
                                 {
                                     if (line.Length < 17 || !(line.IndexOf(',') - line.IndexOf(':') > 1))
                                         continue;
-                                    //DataRow dr = history.NewRow();
-                                    //dr["RowCount"] = "";
                                     history.Rows.Add();
                                     THistory.Rows[counter].Cells["Symbol"].Value = line.Substring(line.IndexOf(':') + 1, GetNth(line, ',', 1) - line.IndexOf(':') - 2); // populate each cell in row here, THIS DOESNT WORK RN
                                     THistory.Rows[counter].Cells["Date"].Value = line.Substring(GetNth(line, ',', 1), GetNth(line, ',', 2) - GetNth(line, ',', 1) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
@@ -167,7 +163,6 @@ namespace TradeTracker
                                     THistory.Rows[counter].Cells["Weaknesses"].Value = line.Substring(GetNth(line, ',', 13), GetNth(line, ',', 14) - GetNth(line, ',', 13) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
                                     THistory.Rows[counter].Cells["Notes2"].Value = line.Substring(GetNth(line, ',', 14), GetNth(line, ',', 15) - GetNth(line, ',', 14) - 1).Replace("~~~", "\r\n"); // populate each cell in row here, THIS DOESNT WORK RN
                                     counter++;
-                                    //this.CoWaitForMultipleHandles();
                                 }
                                 File.Copy(historyPath, historyPath + ".init.bak", true);
                                 file.Close();
@@ -194,6 +189,8 @@ namespace TradeTracker
                             commissions[1] = fileStream.ReadSingle();
                         if (i == 10)
                             commissions[2] = fileStream.ReadSingle();
+                        if (i == 11)
+                            commissions[3] = fileStream.ReadSingle();
                     }
                 }
             }
@@ -212,10 +209,7 @@ namespace TradeTracker
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
                     var fileStream = openFileDialog.OpenFile();
-
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
                         fileContent = reader.ReadToEnd();
@@ -265,10 +259,7 @@ namespace TradeTracker
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
                     var fileStream = openFileDialog.OpenFile();
-
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
                         fileContent = reader.ReadToEnd();
@@ -345,7 +336,6 @@ namespace TradeTracker
         private void tradeWinttwToolStripMenuItem_Click(object sender, EventArgs e) // Import Fidelity Trading history   DONE
         {
             string fileContent, filePath;
-
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents";
@@ -355,10 +345,7 @@ namespace TradeTracker
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
                     var fileStream = openFileDialog.OpenFile();
-
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
                         fileContent = reader.ReadToEnd();
@@ -417,9 +404,7 @@ namespace TradeTracker
             }
             watchList.Rows.Clear();
             if (Watch.RowCount != 1)
-            {
                 Watch.Rows.Clear();
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -431,9 +416,7 @@ namespace TradeTracker
             }
             history.Rows.Clear();
             if (THistory.RowCount != 1)
-            {
                 THistory.Rows.Clear();
-            }
         }
 
         private void openDataFolderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -449,7 +432,6 @@ namespace TradeTracker
                 string[] lineArray = new string[13] { exportGrid.Rows[0].Cells["Symbol"].Value.ToString(), exportGrid.Rows[0].Cells["Date"].Value.ToString(), exportGrid.Rows[0].Cells["Position"].Value.ToString(), exportGrid.Rows[0].Cells["Quantity"].Value.ToString(), exportGrid.Rows[0].Cells["PricePerShare"].Value.ToString(), exportGrid.Rows[0].Cells["EarningsPerShare"].Value.ToString(), exportGrid.Rows[0].Cells["Strengths"].Value.ToString(), exportGrid.Rows[0].Cells["Weaknesses"].Value.ToString(), exportGrid.Rows[0].Cells["Notes"].Value.ToString(), exportGrid.Rows[0].Cells["MajorLevels"].Value.ToString(), exportGrid.Rows[0].Cells["Strategy"].Value.ToString(), exportGrid.Rows[0].Cells["Earnings"].Value.ToString(), exportGrid.Rows[0].Cells["Price"].Value.ToString() };
                 DataRow row = history.NewRow();
                 history.Rows.InsertAt(row, 0);
-                //THistory.Rows.Insert(0, new string[13]);
                 THistory.Rows[0].Cells["Symbol"].Value = lineArray[0];
                 THistory.Rows[0].Cells["Date"].Value = lineArray[1];
                 THistory.Rows[0].Cells["Side"].Value = lineArray[2];
@@ -475,9 +457,7 @@ namespace TradeTracker
                     File.Copy(path2, path2 + ".bak", true);
                 }
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("First try: " + ex.ToString());
+            catch (Exception ex) { //MessageBox.Show("First: " + ex.ToString());
             }
             try
             {
@@ -485,9 +465,7 @@ namespace TradeTracker
                 if (str.Length > 4)
                     File.WriteAllText(path2, str);
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Second try: " + ex.ToString());
+            catch (Exception ex) { //MessageBox.Show("Second: " + ex.ToString());
             }
         }
 
@@ -590,9 +568,7 @@ namespace TradeTracker
                     {
                         fileContent = reader.ReadToEnd();
                         MatchCollection match = Regex.Matches(fileContent, @":(.+?),"); // break file down into lines
-                                                                                        //THistory.DataSource = null;
                         watchList.Rows.Clear();
-                        //watchList.Rows.Add();
                         int counter = 0;
                         //counter = Watch.Rows.Count > 1 ? Watch.Rows.Count - 1 : 0;
                         for (int i = 0; i < match.Count; i++)
@@ -673,9 +649,7 @@ namespace TradeTracker
                     {
                         fileContent = reader.ReadToEnd();
                         MatchCollection match = Regex.Matches(fileContent, @":(.+?),"); // break file down into lines
-                                                                                        //THistory.DataSource = null;
                         watchList.Rows.Clear();
-                        //watchList.Rows.Add();
                         int counter = 0;
                         //counter = Watch.Rows.Count > 1 ? Watch.Rows.Count - 1 : 0;
                         for (int i = 0; i < match.Count; i++)
@@ -730,7 +704,6 @@ namespace TradeTracker
                 saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents";
                 saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
                 saveFileDialog.RestoreDirectory = true;
-
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     //Get the path of specified file
@@ -752,7 +725,6 @@ namespace TradeTracker
                 saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents";
                 saveFileDialog.Filter = "TradeWin Active Trades File (*.atw)|*.atw|All files (*.*)|*.*";
                 saveFileDialog.RestoreDirectory = true;
-
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     exportTWFile(false, true, saveFileDialog.FileName, Watch);
@@ -770,21 +742,13 @@ namespace TradeTracker
                 if (THistory.Rows[i].Cells[2].Value != null && THistory.Rows[i].Cells["Price"].Value != null && float.TryParse(THistory.Rows[i].Cells["Price"].Value.ToString(), out p) && THistory.Rows[i].Cells["Earnings"].Value != null && float.TryParse(THistory.Rows[i].Cells["Earnings"].Value.ToString(), out ea))
                 {
                     if (p > ea)
-                    {
                         THistory.Rows[i].DefaultCellStyle.BackColor = Color.LightCoral;
-                    }
                     if (p < ea)
-                    {
                         THistory.Rows[i].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
-                    }
                     if (p > ea && THistory.Rows[i].Cells[2].Value.ToString().Contains("Short"))
-                    {
                         THistory.Rows[i].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
-                    }
                     if (p < ea && THistory.Rows[i].Cells[2].Value.ToString().Contains("Short"))
-                    {
                         THistory.Rows[i].DefaultCellStyle.BackColor = Color.LightCoral;
-                    }
                     THistory.Rows[i].Cells["EPS"].Value = Math.Round(Math.Abs(ea - p), 4);
                     if (THistory.Rows[i].Cells["Quantity"].Value != null && float.TryParse(THistory.Rows[i].Cells["Quantity"].Value.ToString(), out q))
                     {
@@ -795,14 +759,10 @@ namespace TradeTracker
 
                     }
                     else
-                    {
                         THistory.Rows[i].Cells["GainLoss"].Value = "0";
-                    }
                 }
                 else
-                {
                     THistory.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
-                }
             }
         }
 
@@ -827,31 +787,23 @@ namespace TradeTracker
                 DataRow dr = watchList.NewRow();
                 watchList.Rows.InsertAt(dr, Watch.CurrentRow.Index + 1);
                 for (int i = 0; i < Watch.Rows[Watch.CurrentRow.Index + 1].Cells.Count; i++)
-                {
                     Watch.Rows[Watch.CurrentRow.Index + 1].Cells[i].Value = Watch.Rows[Watch.CurrentRow.Index].Cells[i].Value;
-                }
             }
             else if (THistory.CurrentRow != null && THistory.CurrentRow.Index >= 0 && !watchActive)
             {
                 DataRow dr = history.NewRow();
                 history.Rows.InsertAt(dr, THistory.CurrentRow.Index + 1);
                 for (int i = 0; i < THistory.Rows[THistory.CurrentRow.Index + 1].Cells.Count; i++)
-                {
                     THistory.Rows[THistory.CurrentRow.Index + 1].Cells[i].Value = THistory.Rows[THistory.CurrentRow.Index].Cells[i].Value;
-                }
             }
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             if (Watch.CurrentRow != null && Watch.CurrentRow.Index >= 0 && watchActive)
-            {
                 Watch.Rows.RemoveAt(Watch.CurrentRow.Index);
-            }
             else if (THistory.CurrentRow != null && THistory.CurrentRow.Index >= 0 && !watchActive)
-            {
                 THistory.Rows.RemoveAt(THistory.CurrentRow.Index);
-            }
         }
 
     const int BYTES_TO_READ = sizeof(Int64);
@@ -874,9 +826,8 @@ namespace TradeTracker
 
             for (int i = 0; i < iterations; i++)
             {
-                 fs1.Read(one, 0, BYTES_TO_READ);
-                 fs2.Read(two, 0, BYTES_TO_READ);
-
+                fs1.Read(one, 0, BYTES_TO_READ);
+                fs2.Read(two, 0, BYTES_TO_READ);
                 if (BitConverter.ToInt64(one,0) != BitConverter.ToInt64(two,0))
                     return false;
             }
@@ -893,19 +844,15 @@ namespace TradeTracker
                 {
                     client.DownloadFile("https://github.com/DarkFlare69/TradeWin/raw/main/TradeTracker/bin/Debug/TradeWin.exe", "TradeWin-update.exe");
                 }
-                catch (Exception ex)
+                catch
                 {
                     if (File.Exists(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe")) // do this in Form1_Load too
-                    {
                         File.Delete(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe");
-                    }
                     MessageBox.Show("Unable to retrieve update file! Please check your Internet connection.", "TradeWin Updater");
                     return;
                 }
                 if (File.Exists(Process.GetCurrentProcess().MainModule.FileName + ".bak")) // do this in Form1_Load too
-                {
                     File.Delete(Process.GetCurrentProcess().MainModule.FileName + ".bak");
-                }
                 if (!FilesAreEqual(new FileInfo(Process.GetCurrentProcess().MainModule.FileName), new FileInfo(Directory.GetCurrentDirectory() + "\\TradeWin-update.exe")))
                 {
                     File.Move(Process.GetCurrentProcess().MainModule.FileName, Process.GetCurrentProcess().MainModule.FileName + ".bak");
@@ -957,22 +904,17 @@ namespace TradeTracker
                         int counter;
                         counter = Watch.Rows.Count > 1 ? Watch.Rows.Count - 1 : 0;
                         for (int i = 0; i < match.Count; i++)
-                        {
                             if (match[i].ToString().Contains(",") && match[i].ToString().Length > 2) // All compatible lines
                             {
                                 watchList.Rows.Add();
                                 Watch.Rows[counter].Cells["Column1"].Value = match[i].ToString().Substring(1, match[i].ToString().Length - 2);
                                 counter++;
                             }
-                        }
                         reader.Close();
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Backup file missing at: " + historyPath + ".init.bak");
-            }
+            catch { MessageBox.Show("Backup file missing at: " + historyPath + ".init.bak"); }
         }
 
         private void THistory_Enter(object sender, EventArgs e)

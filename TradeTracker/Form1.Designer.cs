@@ -744,7 +744,7 @@ namespace TradeTracker
             // 
             // Earnings
             // 
-            this.Earnings.FillWeight = 90F;
+            this.Earnings.FillWeight = 85F;
             this.Earnings.HeaderText = "Exit Price";
             this.Earnings.Name = "Earnings";
             // 

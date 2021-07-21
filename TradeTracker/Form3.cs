@@ -73,6 +73,11 @@ namespace TradeTracker
                     textBox1.Text = _form1Instance.commissions[0].ToString();
                     textBox4.Text = _form1Instance.commissions[1].ToString();
                     textBox3.Text = _form1Instance.commissions[2].ToString();
+                    textBox5.Text = _form1Instance.commissions[3].ToString();
+                    if (_form1Instance.commissions[3] > 0)
+                    {
+                        checkBox10.Checked = true;
+                    }
                 }
             }
         }
@@ -114,7 +119,7 @@ namespace TradeTracker
                     Form1.perShare = checkBox6.Checked;
                     Form1.perDollar = checkBox7.Checked;
                     Form1.autoSaveWatch = checkBox4.Checked;
-                    float[] floats = new float[3] { 0, 0, 0 };
+                    float[] floats = new float[4] { 0, 0, 0, 0 };
                     if (textBox1.Text != "" && float.TryParse(textBox1.Text, out floats[0]))
                     {
                         _form1Instance.commissions[0] = floats[0];
@@ -127,16 +132,24 @@ namespace TradeTracker
                     {
                         _form1Instance.commissions[2] = floats[2];
                     }
+                    if (textBox5.Text != "" && float.TryParse(textBox5.Text, out floats[3]))
+                    {
+                        _form1Instance.commissions[3] = floats[3];
+                    }
+                    if (!checkBox10.Checked)
+                    {
+                        _form1Instance.commissions[3] = 0;
+                    }
                     byte[] floatByteArr = new byte[floats.Length * 4];
                     Buffer.BlockCopy(floats, 0, floatByteArr, 0, floatByteArr.Length);
                     byte[] settings = new byte[8] { Convert.ToByte(checkBox1.Checked), Convert.ToByte(checkBox2.Checked), Convert.ToByte(checkBox3.Checked), Convert.ToByte(checkBox4.Checked), Convert.ToByte(checkBox5.Checked), Convert.ToByte(checkBox6.Checked), Convert.ToByte(checkBox7.Checked), Convert.ToByte(checkBox9.Checked) };
                     //settings[BitConverter.GetBytes(perSale);
-                    byte[] newArr = new byte[20];
+                    byte[] newArr = new byte[24];
                     newArr = NewByteArray(settings, floatByteArr);
-                    fs.Write(newArr, 0, 20);
+                    fs.Write(newArr, 0, 24);
                 }
             }
-            catch (Exception ex) { }
+            catch {}
         }
 
         private void button2_Click(object sender, EventArgs e)
