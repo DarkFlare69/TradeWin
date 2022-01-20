@@ -81,13 +81,15 @@ namespace TradeTracker
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Silver;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(248, 168);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 30);
             this.button1.TabIndex = 2;
             this.button1.Text = "Clear stored data";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkBox3
@@ -120,13 +122,15 @@ namespace TradeTracker
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Silver;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(12, 168);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(135, 30);
             this.button2.TabIndex = 5;
             this.button2.Text = "Restore settings";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // colorDialog1
@@ -136,6 +140,7 @@ namespace TradeTracker
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.textBox1.Location = new System.Drawing.Point(87, 17);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(93, 20);
@@ -164,13 +169,14 @@ namespace TradeTracker
             this.checkBox8.AutoSize = true;
             this.checkBox8.Location = new System.Drawing.Point(6, 43);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(81, 17);
+            this.checkBox8.Size = new System.Drawing.Size(82, 17);
             this.checkBox8.TabIndex = 13;
-            this.checkBox8.Text = "Per Dollar $";
+            this.checkBox8.Text = "Per Share $";
             this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // textBox4
             // 
+            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.textBox4.Location = new System.Drawing.Point(87, 41);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(93, 20);
@@ -188,6 +194,7 @@ namespace TradeTracker
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.textBox3.Location = new System.Drawing.Point(87, 65);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(93, 20);
@@ -247,6 +254,7 @@ namespace TradeTracker
             // 
             // textBox5
             // 
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.textBox5.Location = new System.Drawing.Point(309, 12);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(93, 20);

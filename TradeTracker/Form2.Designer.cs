@@ -35,6 +35,12 @@ namespace TradeTracker
             this.button4 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MajorLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Side = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Entry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -44,12 +50,6 @@ namespace TradeTracker
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MajorLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Side = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Entry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -84,6 +84,7 @@ namespace TradeTracker
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.dateTimePicker1.CustomFormat = "   MM/dd/yyyy  @  hh:mm tt";
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -100,12 +101,12 @@ namespace TradeTracker
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(85)))), ((int)(((byte)(120)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -117,13 +118,14 @@ namespace TradeTracker
             this.Entry,
             this.Exit});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(85)))), ((int)(((byte)(120)))));
             this.dataGridView1.Location = new System.Drawing.Point(6, 27);
             this.dataGridView1.MultiSelect = false;
@@ -133,6 +135,39 @@ namespace TradeTracker
             this.dataGridView1.Size = new System.Drawing.Size(726, 69);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.Validated += new System.EventHandler(this.dataGridView1_Validated);
+            // 
+            // Symbol
+            // 
+            this.Symbol.FillWeight = 60F;
+            this.Symbol.HeaderText = "Symbol";
+            this.Symbol.Name = "Symbol";
+            // 
+            // MajorLevels
+            // 
+            this.MajorLevels.FillWeight = 130F;
+            this.MajorLevels.HeaderText = "Major Levels";
+            this.MajorLevels.Name = "MajorLevels";
+            // 
+            // Side
+            // 
+            this.Side.FillWeight = 80F;
+            this.Side.HeaderText = "Side";
+            this.Side.Name = "Side";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Entry
+            // 
+            this.Entry.HeaderText = "Enter";
+            this.Entry.Name = "Entry";
+            // 
+            // Exit
+            // 
+            this.Exit.HeaderText = "Exit";
+            this.Exit.Name = "Exit";
             // 
             // textBox1
             // 
@@ -145,6 +180,7 @@ namespace TradeTracker
             this.textBox1.Location = new System.Drawing.Point(12, 186);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(366, 252);
             this.textBox1.TabIndex = 1;
             // 
@@ -240,39 +276,6 @@ namespace TradeTracker
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // Symbol
-            // 
-            this.Symbol.FillWeight = 60F;
-            this.Symbol.HeaderText = "Symbol";
-            this.Symbol.Name = "Symbol";
-            // 
-            // MajorLevels
-            // 
-            this.MajorLevels.FillWeight = 130F;
-            this.MajorLevels.HeaderText = "Major Levels";
-            this.MajorLevels.Name = "MajorLevels";
-            // 
-            // Side
-            // 
-            this.Side.FillWeight = 80F;
-            this.Side.HeaderText = "Side";
-            this.Side.Name = "Side";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // Entry
-            // 
-            this.Entry.HeaderText = "Enter";
-            this.Entry.Name = "Entry";
-            // 
-            // Exit
-            // 
-            this.Exit.HeaderText = "Exit";
-            this.Exit.Name = "Exit";
             // 
             // Form2
             // 

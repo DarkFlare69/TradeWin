@@ -16,8 +16,11 @@ F:\VS\TradeWin\TradeTracker\bin\Debug\TradeWin.pdb
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeTracker.Form1.resources
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeTracker.Form2.resources
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeTracker.Form3.resources
+F:\VS\TradeWin\TradeTracker\obj\Debug\TradeWin.Form4.resources
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeWin.Properties.Resources.resources
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeTracker.csproj.GenerateResource.cache
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeTracker.csproj.CoreCompileInputs.cache
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeWin.exe
 F:\VS\TradeWin\TradeTracker\obj\Debug\TradeWin.pdb
+F:\VS\TradeWin\TradeTracker\obj\Debug\TradeWin.Form5.resources
+F:\VS\TradeWin\TradeTracker\obj\Debug\TradeTracker.csproj.AssemblyReference.cache

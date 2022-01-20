@@ -6,6 +6,7 @@ using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using TradeWin;
 
 namespace TradeTracker
 {
@@ -14,7 +15,8 @@ namespace TradeTracker
         public DataGridView exportGrid = new DataGridView();
         static DataTable watchList = new DataTable(), history = new DataTable();
         public static bool watchActive, autoSaveWatch, autoSaveTHistory, perSale = false, perShare = false, perDollar = false, loaded = false;
-        static string versionString = "v1.0", watchPath, historyPath;
+        static string versionString = "v1.0", watchPath, historyPath, strategyPath;
+        public static string calenderPath;
         public float[] commissions = new float[4];
         public Form1()
         {
@@ -23,10 +25,13 @@ namespace TradeTracker
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //chart1.ChartType = SeriesChartType.Line;
             Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin\\dev");
             string settingPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin\\settings.bin";
             watchPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin";
             historyPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin";
+            strategyPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin";
+            calenderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin";
             byte[] test = new byte[1];
             try
             {
@@ -38,12 +43,15 @@ namespace TradeTracker
                     {
                         watchPath += "\\watchlist.atw";
                         historyPath += "\\history.tw";
-
+                        strategyPath += "\\strategy.tw";
+                        calenderPath += "\\calender.txt";
                     }
                     else if (test[0] == 1) // use dev directory
                     {
                         watchPath += "\\dev\\watchlist.atw";
                         historyPath += "\\dev\\history.tw";
+                        strategyPath += "\\dev\\strategy.tw";
+                        calenderPath += "\\dev\\calender.txt";
                     }
                 }
             }
@@ -51,6 +59,8 @@ namespace TradeTracker
             {
                 watchPath += "\\watchlist.atw";
                 historyPath += "\\history.tw";
+                strategyPath += "\\strategy.tw";
+                calenderPath += "\\calender.txt";
             }
             exportGrid.Columns.Add("Symbol", "Symbol");
             exportGrid.Columns.Add("Date", "Date");
@@ -87,18 +97,87 @@ namespace TradeTracker
             {
                 File.WriteAllText(historyPath, ":,,,,,,,,,,,,,");
             }
+            if (!File.Exists(strategyPath))
+            {
+                File.WriteAllText(strategyPath, ":,,,,,,,");
+            }
             if (!File.Exists(settingPath))
             {
                 try
                 {
                     using (FileStream fs = File.Create(settingPath))
                     {
-                        byte[] settings = { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 };
+                        byte[] settings = { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
                         fs.Write(settings, 0, 24);
                     }
                 }
-                catch {}
+                catch { }
                 MessageBox.Show("TradeWin is designed to be a free, open source trade logging application. This allows importing trade history from Fidelity, exporting/loading from TradeWin proprietary format (.tw) and more!\n\nTraders are intended to make trading decisions based on their own sources. TradeWin is simply an additional tool to keep for traders to keep an eye on their daytrades and log performance on a free, offline platform.\n\nNotable features include auto-saving and auto-loading the watchlist/history (configurable in settings), and importing/exporting to multiple file formats. Most other necessary basic features are available.", "Welcome to TradeWin! - " + versionString);
+            }
+            if (File.Exists(calenderPath))
+            {
+                string line;
+                StreamReader file = new StreamReader(calenderPath);
+                string dailyMessage = "";
+                string todaysMessage = "";
+                string todaysDate = DateTime.Now.ToString("MM/dd/yyyy") + ",1,";
+                if (todaysDate.StartsWith("0"))
+                {
+                    todaysDate = todaysDate.Substring(1, todaysDate.Length - 1);
+                }
+                if (todaysDate.Contains("/0"))
+                {
+                    todaysDate = todaysDate.Replace("/0", "/");
+                }
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (line.Length < 12)
+                        continue;
+                    if (line.Contains("DailyMessage,1,"))
+                    {
+                        dailyMessage = line.Substring(15, line.Length - 16);
+                    }
+                    if (line.Contains(todaysDate))
+                    {
+                        todaysMessage = line.Substring(todaysDate.Length, line.Length - todaysDate.Length - 1);
+                    }
+                }
+                if (todaysMessage != "")
+                {
+                    MessageBox.Show(todaysMessage.Replace("~~~", "\r\n"), "Todays Ideas");
+                }
+                if (dailyMessage != "")
+                {
+                    MessageBox.Show(dailyMessage.Replace("~~~", "\r\n"), "Daily Message");
+                }
+                file.Close();
+            }
+            if (File.Exists(strategyPath))
+            {
+                string line;
+                int counter = 0;
+                StreamReader file = new StreamReader(strategyPath);
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (line.Length < 11)
+                        continue;
+                    if (line.IndexOf(',') - line.IndexOf(':') > 1)
+                    {
+                        IdentifiedStratTable.Rows.Add();
+                        IdentifiedStratTable.Rows[counter].Cells["Column5"].Value = line.Substring(line.IndexOf(':') + 1, line.IndexOf(',') - line.IndexOf(':') - 1);
+                        IdentifiedStratTable.Rows[counter].Cells["Target"].Value = line.Substring(GetNth(line, ',', 1), GetNth(line, ',', 2) - GetNth(line, ',', 1) - 1); // populate each cell in row here, THIS DOESNT WORK RN
+                        IdentifiedStratTable.Rows[counter].Cells["AddNewTradesFrom"].Value = line.Substring(GetNth(line, ',', 2), GetNth(line, ',', 3) - GetNth(line, ',', 2) - 1); // populate each cell in row here, THIS DOESNT WORK RN
+                        IdentifiedStratTable.Rows[counter].Cells["Note"].Value = line.Substring(GetNth(line, ',', 3), GetNth(line, ',', 4) - GetNth(line, ',', 3) - 1); // populate each cell in row here, THIS DOESNT WORK RN
+                        IdentifiedStratTable.Rows[counter].Cells["Keywords"].Value = line.Substring(GetNth(line, ',', 4), GetNth(line, ',', 5) - GetNth(line, ',', 4) - 1).Replace(".", ","); // populate each cell in row here, THIS DOESNT WORK RN
+                        IdentifiedStratTable.Rows[counter].Cells["Exclusions"].Value = line.Substring(GetNth(line, ',', 5), GetNth(line, ',', 6) - GetNth(line, ',', 5) - 1).Replace(".", ","); // populate each cell in row here, THIS DOESNT WORK RN
+                        IdentifiedStratTable.Rows[counter].Cells["AvgWin"].Value = line.Substring(GetNth(line, ',', 6), GetNth(line, ',', 7) - GetNth(line, ',', 6) - 1); // populate each cell in row here, THIS DOESNT WORK RN
+                        IdentifiedStratTable.Rows[counter].Cells["AvgLoss2"].Value = line.Substring(GetNth(line, ',', 7), GetNth(line, ',', 8) - GetNth(line, ',', 7) - 1); // populate each cell in row here, THIS DOESNT WORK RN
+                        counter++;
+                    }
+
+                }
+                File.Copy(strategyPath, strategyPath + ".init.bak", true);
+                file.Close();
             }
             if (File.Exists(settingPath))
             {
@@ -182,7 +261,7 @@ namespace TradeTracker
                             perShare = true;
                         if (i == 6 && fileStream.ReadByte() == 1)
                             perDollar = true;
-                        if (i == 7 && fileStream.ReadByte() == 1) {}
+                        if (i == 7 && fileStream.ReadByte() == 1) { }
                         if (i == 8)
                             commissions[0] = fileStream.ReadSingle();
                         if (i == 9)
@@ -194,8 +273,28 @@ namespace TradeTracker
                     }
                 }
             }
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin\\stratcalc.csv"))
+            {
+                string fileContent = "";
+                using (StreamReader reader = new StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin\\stratcalc.csv"))
+                {
+                    fileContent = reader.ReadToEnd();
+                    MatchCollection match = Regex.Matches(fileContent, @",(.+?),");
+                    if (match.Count == 5)
+                    {
+                        textBox1.Text = match[0].ToString() != null && match[0].ToString().Length > 2 ? match[0].ToString().Substring(1, match[0].Length - 2) : "";
+                        textBox2.Text = match[1].ToString() != null && match[1].ToString().Length > 2 ? match[1].ToString().Substring(1, match[1].Length - 2) : "";
+                        textBox3.Text = match[2].ToString() != null && match[2].ToString().Length > 2 ? match[2].ToString().Substring(1, match[2].Length - 2) : "";
+                        textBox4.Text = match[3].ToString() != null && match[3].ToString().Length > 2 ? match[3].ToString().Substring(1, match[3].Length - 2) : "";
+                        textBox5.Text = match[4].ToString() != null && match[4].ToString().Length > 2 ? match[4].ToString().Substring(1, match[4].Length - 2) : "";
+                        File.Copy(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin\\stratcalc.csv", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin\\stratcalc.csv.init.bak", true);
+                    }
+                    reader.Close();
+                }
+            }
             loaded = true;
-        }        
+            updateStrategy(THistory, IdentifiedStratTable);
+        }
         private void ImportTWFileToolStripMenuItem_Click(object sender, EventArgs e) // Import TW To History
         {
             string fileContent, filePath;
@@ -764,6 +863,7 @@ namespace TradeTracker
                 else
                     THistory.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
             }
+            updateStrategy(THistory, IdentifiedStratTable);
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -806,35 +906,35 @@ namespace TradeTracker
                 THistory.Rows.RemoveAt(THistory.CurrentRow.Index);
         }
 
-    const int BYTES_TO_READ = sizeof(Int64);
+        const int BYTES_TO_READ = sizeof(Int64);
 
-    static bool FilesAreEqual(FileInfo first, FileInfo second)
-    {
-        if (first.Length != second.Length)
-            return false;
-
-        if (string.Equals(first.FullName, second.FullName, StringComparison.OrdinalIgnoreCase))
-            return true;
-
-        int iterations = (int)Math.Ceiling((double)first.Length / BYTES_TO_READ);
-
-        using (FileStream fs1 = first.OpenRead())
-        using (FileStream fs2 = second.OpenRead())
+        static bool FilesAreEqual(FileInfo first, FileInfo second)
         {
-            byte[] one = new byte[BYTES_TO_READ];
-            byte[] two = new byte[BYTES_TO_READ];
+            if (first.Length != second.Length)
+                return false;
 
-            for (int i = 0; i < iterations; i++)
+            if (string.Equals(first.FullName, second.FullName, StringComparison.OrdinalIgnoreCase))
+                return true;
+
+            int iterations = (int)Math.Ceiling((double)first.Length / BYTES_TO_READ);
+
+            using (FileStream fs1 = first.OpenRead())
+            using (FileStream fs2 = second.OpenRead())
             {
-                fs1.Read(one, 0, BYTES_TO_READ);
-                fs2.Read(two, 0, BYTES_TO_READ);
-                if (BitConverter.ToInt64(one,0) != BitConverter.ToInt64(two,0))
-                    return false;
-            }
-        }
+                byte[] one = new byte[BYTES_TO_READ];
+                byte[] two = new byte[BYTES_TO_READ];
 
-        return true;
-    }
+                for (int i = 0; i < iterations; i++)
+                {
+                    fs1.Read(one, 0, BYTES_TO_READ);
+                    fs2.Read(two, 0, BYTES_TO_READ);
+                    if (BitConverter.ToInt64(one, 0) != BitConverter.ToInt64(two, 0))
+                        return false;
+                }
+            }
+
+            return true;
+        }
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -869,9 +969,177 @@ namespace TradeTracker
             }
         }
 
+        public int calculateStrat()
+        {
+            double quantity = 0, winRatio = 0, avgWin = 0, avgLoss = 0, tradeCount = 0, totalWins = 0, totalLosses = 0, endValue = 0;
+            if (double.TryParse(textBox5.Text, out tradeCount))
+            {
+                if (double.TryParse(textBox1.Text, out quantity))
+                {
+                    textBox9.Text = (tradeCount * quantity).ToString();
+                }
+                if (double.TryParse(textBox2.Text, out winRatio))
+                {
+                    totalWins = Math.Floor(tradeCount / (1 + winRatio) * winRatio);
+                    totalLosses = tradeCount - totalWins;
+                    textBox7.Text = totalWins.ToString();
+                    textBox6.Text = totalLosses.ToString();
+                    if (double.TryParse(textBox3.Text, out avgWin))
+                    {
+                        if (double.TryParse(textBox4.Text, out avgLoss) && quantity > 0 && winRatio > 0 && avgWin > 0 && avgLoss > 0 && tradeCount > 0 && totalWins > 0 && totalLosses > 0)
+                        {
+                            endValue = totalWins * (avgWin * quantity);
+                            endValue = endValue - (totalLosses * avgLoss * quantity);
+                            textBox8.Text = "Net Earnings: $" + Math.Round(endValue, 2).ToString() + Environment.NewLine + "Average Earnings Per Trade: $" + Math.Round((endValue / tradeCount), 3).ToString();
+                            return 2;
+                        }
+                    }
+                }
+            }
+            return 0;
+        }
+
         private void restartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (calculateStrat() == 2 && loaded)
+                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\TradeWin\\stratcalc.csv", "," + textBox1.Text + ",," + textBox2.Text + ",," + textBox3.Text + ",," + textBox4.Text + ",," + textBox5.Text + ",");
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            IdentifiedStratTable.Rows.Clear();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            StratLogPanel.Rows.Clear();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            IdentifiedStratTable.Rows.Clear();
+            StratLogPanel.Rows.Clear();
+            textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text = "";
+        }
+
+        private void IdentifiedStratTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (IdentifiedStratTable.CurrentCell != null && IdentifiedStratTable.CurrentCell.RowIndex >= 0 && IdentifiedStratTable.CurrentCell.ColumnIndex == 0)
+            {
+                Form4 form4 = new Form4(this);
+                _ = form4.ShowDialog();
+            }
+        }
+
+        private void IdentifiedStratTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            exportTWFile(true, true, strategyPath, IdentifiedStratTable); // exporting the file should work, now just import it on Form1 load before history
+            if (loaded)
+                updateStrategy(THistory, IdentifiedStratTable);
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            IdentifiedStratTable.Rows.Add();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            DataGridView dgv = IdentifiedStratTable;
+            try
+            {
+                int totalRows = dgv.Rows.Count;
+                // get index of the row for the selected cell
+                int rowIndex = dgv.SelectedCells[0].OwningRow.Index;
+                if (rowIndex == 0)
+                    return;
+                // get index of the column for the selected cell
+                int colIndex = dgv.SelectedCells[0].OwningColumn.Index;
+                DataGridViewRow selectedRow = dgv.Rows[rowIndex];
+                dgv.Rows.Remove(selectedRow);
+                dgv.Rows.Insert(rowIndex - 1, selectedRow);
+                dgv.ClearSelection();
+                dgv.Rows[rowIndex - 1].Cells[colIndex].Selected = true;
+            }
+            catch { }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            DataGridView dgv = IdentifiedStratTable;
+            try
+            {
+                int totalRows = dgv.Rows.Count;
+                // get index of the row for the selected cell
+                int rowIndex = dgv.SelectedCells[0].OwningRow.Index;
+                if (rowIndex == totalRows - 1)
+                    return;
+                // get index of the column for the selected cell
+                int colIndex = dgv.SelectedCells[0].OwningColumn.Index;
+                DataGridViewRow selectedRow = dgv.Rows[rowIndex];
+                dgv.Rows.Remove(selectedRow);
+                dgv.Rows.Insert(rowIndex + 1, selectedRow);
+                dgv.ClearSelection();
+                dgv.Rows[rowIndex + 1].Cells[colIndex].Selected = true;
+            }
+            catch { }
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            Form5 form5 = new Form5(this);
+            _ = form5.ShowDialog();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Clear trading calender?", "Confirm", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                MessageBox.Show("You clicked yes");
+                if (File.Exists(calenderPath))
+                {
+                    File.Copy(calenderPath, calenderPath + ".bak", true);
+                    File.Delete(calenderPath);
+                }
+            }
+        }
+
+        private void miscToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+            miscToolStripMenuItem.ForeColor = Color.White;
+        }
+
+        private void miscToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            miscToolStripMenuItem.ForeColor = Color.Black;
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents";
+                saveFileDialog.Filter = "Text File (*.txt)|*.txt|All files (*.*)|*.*";
+                saveFileDialog.RestoreDirectory = true;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //exportTWFile(false, true, saveFileDialog.FileName, THistory);
+                    File.Copy(calenderPath, saveFileDialog.FileName);
+                }
+            }
+        }
+
+        private void backupCalenderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void stocksToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
@@ -925,6 +1193,7 @@ namespace TradeTracker
         private void THistory_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             exportTWFile(true, autoSaveTHistory, historyPath, THistory);
+            updateStrategy(THistory, IdentifiedStratTable);
         }
         private void Watch_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
@@ -935,6 +1204,165 @@ namespace TradeTracker
             exportTWFile(true, autoSaveWatch, watchPath, Watch);
         }
 
+        public void updateStrategy(DataGridView historyGrid, DataGridView strategyGrid)
+        {
+            if (checkBox1.Checked && loaded)
+            {
+                StratLogPanel.Rows.Clear();
+                int[] winCount = new int[strategyGrid.RowCount], lossCount = new int[strategyGrid.RowCount];
+                double[] GainLOSS = new double[strategyGrid.RowCount], GainAmount = new double[strategyGrid.RowCount], LossAmount = new double[strategyGrid.RowCount];
+                int stratCount = 0;
+                string[] keywords = new string[strategyGrid.RowCount], exclusions = new string[strategyGrid.RowCount], positionType = new string[strategyGrid.RowCount];
+                foreach (DataGridViewRow stratRow in strategyGrid.Rows) // loop through each strategy row
+                {
+                    if (stratRow.Cells["Column5"].Value != null) // make sure its a strategy
+                    {
+                        if (stratRow.Cells["Keywords"].Value != null) // check the keywords cell of the row
+                        {
+                            if (stratRow.Cells["Keywords"].Value.ToString() != "")
+                            {
+                                //MatchCollection keys = Regex.Matches(stratRow.Cells["Keywords"].Value.ToString(), @"(.+?),"); // break keywords down into comma sections
+                                keywords[stratCount] = "," + stratRow.Cells["Keywords"].Value.ToString().Replace(",", ",,") + ","; // keywords[currentstrategy] will be all the keywords with commas
+                            }
+                        }
+                        if (stratRow.Cells["Exclusions"].Value != null)
+                        {
+                            if (stratRow.Cells["Exclusions"].Value.ToString() != "")
+                            {
+                                //MatchCollection exclusions = Regex.Matches(stratRow.Cells["Exclusions"].Value.ToString(), @"(.+?),"); // break keywords down into comma sections
+                                exclusions[stratCount] = "," + stratRow.Cells["Exclusions"].Value.ToString().Replace(",", ",,") + ",";
+                                //exclusions[strat] = exclusions[strat];
+                            }
+                        }
+                        if (stratRow.Cells["AddNewTradesFrom"].Value != null)
+                        {
+                            if (stratRow.Cells["AddNewTradesFrom"].Value.ToString() != "")
+                            {
+                                //MatchCollection exclusions = Regex.Matches(stratRow.Cells["Exclusions"].Value.ToString(), @"(.+?),"); // break keywords down into comma sections
+                                positionType[stratCount] = stratRow.Cells["AddNewTradesFrom"].Value.ToString();
+                            }
+                        }
+                        stratCount++;
+                    }
+                }
+                foreach (DataGridViewRow historyrow in historyGrid.Rows) // loop through each history row
+                {
+                    string searchString = "";
+                    bool exclusionFound = false;
+                    if (historyrow.Cells["Symbol"].Value != null) // get the row data into searchString
+                    {
+                        searchString += historyrow.Cells["Strategy"].Value == null ? "" : historyrow.Cells["Strategy"].Value.ToString().ToLower();
+                        searchString += historyrow.Cells["Notes2"].Value == null ? "" : historyrow.Cells["Notes2"].Value.ToString().ToLower();
+                        searchString += historyrow.Cells["Side"].Value == null ? "" : historyrow.Cells["Side"].Value.ToString().ToLower();
+                        searchString += historyrow.Cells["Strengths"].Value == null ? "" : historyrow.Cells["Strengths"].Value.ToString().ToLower();
+                        searchString += historyrow.Cells["Weaknesses"].Value == null ? "" : historyrow.Cells["Weaknesses"].Value.ToString().ToLower();
+                        searchString += historyrow.Cells["Symbol"].Value == null ? "" : historyrow.Cells["Symbol"].Value.ToString().ToLower();
+                    }
+                    for (int strat = 0; strat < stratCount; strat++) // loop through each strategy
+                    {
+                        MatchCollection exclusion = null;
+                        MatchCollection key = null;
+                        if (exclusions[strat] != ",," && exclusions[strat] != null)
+                            exclusion = Regex.Matches(exclusions[strat], @",(.+?),"); // break keywords down into comma sections
+                        if (keywords[strat] != ",," && keywords[strat] != null)
+                            key = Regex.Matches(keywords[strat], @",(.+?),"); // break keywords down into comma sections
+                        //string position = positionType[strat];
+                        for (int k = 0; k < (key != null ? key.Count : 0); k++) // loop through each keyword
+                        {
+                            if (searchString.Contains(key[k].ToString().Substring(1, key[k].Length - 2))) // if one of the keywords is found in the row
+                            {
+                                for (int ex = 0; ex < (exclusion != null ? exclusion.Count : 0); ex++)
+                                {
+                                    if (searchString.Contains(exclusion[ex].ToString().Substring(1, exclusion[ex].Length - 2))) // if any of the exclusions are found, set the exclsuion to true
+                                    {
+                                        exclusionFound = true;
+                                    }
+                                }
+                                if (!exclusionFound) // if no exclusions are found, check price and stuff
+                                {
+                                    if (historyrow.Cells["Price"].Value != null && historyrow.Cells["Earnings"].Value != null)
+                                    {
+                                        double tmp1, tmp2;
+                                        if (double.TryParse(historyrow.Cells["Price"].Value.ToString(), out tmp1) && double.TryParse(historyrow.Cells["Earnings"].Value.ToString(), out tmp2))
+                                        {
+                                            if (historyrow.Cells["Side"].Value != null)
+                                            {
+                                                if (historyrow.Cells["Side"].Value.ToString().Contains("Short") && positionType[strat].Contains("Short"))
+                                                {
+                                                    if (tmp2 < tmp1)
+                                                    {
+                                                        GainLOSS[strat] += double.Parse(historyrow.Cells["GainLoss"].Value.ToString());
+                                                        GainAmount[strat] += double.Parse(historyrow.Cells["GainLoss"].Value.ToString());
+                                                        winCount[strat]++;
+                                                    }
+                                                    else if (tmp2 > tmp1)
+                                                    {
+                                                        GainLOSS[strat] -= double.Parse(historyrow.Cells["GainLoss"].Value.ToString());
+                                                        LossAmount[strat] += double.Parse(historyrow.Cells["GainLoss"].Value.ToString());
+                                                        lossCount[strat]++;
+                                                    }
+                                                    searchString = "1done";
+                                                    continue;
+                                                }
+                                                else if (!historyrow.Cells["Side"].Value.ToString().Contains("Short") && positionType[strat].Contains("Long"))
+                                                {
+                                                    if (tmp2 > tmp1)
+                                                    {
+                                                        GainLOSS[strat] += double.Parse(historyrow.Cells["GainLoss"].Value.ToString());
+                                                        GainAmount[strat] += double.Parse(historyrow.Cells["GainLoss"].Value.ToString());
+                                                        winCount[strat]++;
+                                                    }
+                                                    else if (tmp2 < tmp1)
+                                                    {
+                                                        GainLOSS[strat] -= double.Parse(historyrow.Cells["GainLoss"].Value.ToString());
+                                                        LossAmount[strat] += double.Parse(historyrow.Cells["GainLoss"].Value.ToString());
+                                                        lossCount[strat]++;
+                                                    }
+                                                    searchString = "1done";
+                                                    continue;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (searchString == "1done")
+                            break;
+                    }
+                }
+                //StratLogPanel.Rows.Add();
+                int curStrat = 0;
+                for (int i = 0; i < stratCount; i++)
+                {
+                    double loss = 1, gain = 1, ratio = 0, actual = 0, rrTarget = 0, rrActual = 0;
+                    
+                    if (winCount[i] + lossCount[i] > 0)
+                    {
+                        StratLogPanel.Rows.Add();
+                        StratLogPanel.Rows[curStrat].Cells["StratName"].Value = IdentifiedStratTable.Rows[i].Cells["Column5"].Value + "\r\nTrades: " + (winCount[i] + lossCount[i]);
+                        StratLogPanel.Rows[curStrat].Cells["Wins"].Value = "Target: " + (double.TryParse(IdentifiedStratTable.Rows[i].Cells["Target"].Value != null ? IdentifiedStratTable.Rows[i].Cells["Target"].Value.ToString() : "0", out ratio) ? ratio.ToString() : "0") + "/1\r\nActual: " + (lossCount[i] > 0 ? actual = (double)winCount[i] / lossCount[i] : actual = winCount[i]) + "/1\r\nWins: " + winCount[i] + " Losses: " + lossCount[i];
+                        double.TryParse(IdentifiedStratTable.Rows[i].Cells["AvgLoss2"].Value != null ? IdentifiedStratTable.Rows[i].Cells["AvgLoss2"].Value.ToString() : "1", out loss);
+                        double.TryParse(IdentifiedStratTable.Rows[i].Cells["AvgWin"].Value != null ? IdentifiedStratTable.Rows[i].Cells["AvgWin"].Value.ToString() : "1", out gain);
+                        StratLogPanel.Rows[curStrat].Cells["AvgLoss"].Value = "Target: " + (rrTarget = Math.Round((gain / loss), 3)) + "/1\r\nActual: " + (rrActual = Math.Round(GainAmount[i] / (LossAmount[i] != 0 ? LossAmount[i] : 1), 4)) + "/1";
+                        StratLogPanel.Rows[curStrat].Cells["GainLosses"].Value = "Total G/L: $" + GainLOSS[i] + "\r\nGains: $" + GainAmount[i] + "\r\nLosses: $" + LossAmount[i] + "\r\nAvg G/L: $" + (GainLOSS[i] / ((winCount[i] + lossCount[i]) != 0 ? (winCount[i] + lossCount[i]) : 1));
+                        if (rrActual > rrTarget)
+                            StratLogPanel.Rows[curStrat].Cells["AvgLoss"].Style.BackColor = Color.DarkSeaGreen;
+                        else if (rrActual < rrTarget)
+                            StratLogPanel.Rows[curStrat].Cells["AvgLoss"].Style.BackColor = Color.LightCoral;
+                        if (ratio > actual)
+                            StratLogPanel.Rows[curStrat].Cells["Wins"].Style.BackColor = Color.LightCoral;
+                        else if (ratio < actual)
+                            StratLogPanel.Rows[curStrat].Cells["Wins"].Style.BackColor = Color.DarkSeaGreen;
+                        if (GainAmount[i] > LossAmount[i])
+                            StratLogPanel.Rows[curStrat].Cells["GainLosses"].Style.BackColor = Color.DarkSeaGreen;
+                        else if (GainAmount[i] < LossAmount[i])
+                            StratLogPanel.Rows[curStrat].Cells["GainLosses"].Style.BackColor = Color.LightCoral;
+                        curStrat++;
+                    }
+                }
+            }
+        }
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("TradeWin is a free, simple daytrade tracking tool written in Visual C#. The goal of this program is to provide a platform for daytraders to prepare for setups, log their trades, and import trading history. Logging trades helps with performance monitoring, and this program aims to provide a platform to store trades in an offline file format. Users are expected to only use this tool for inputting and reading personal trade data, not for making trading decisions.", "About TradeWin " + versionString);
