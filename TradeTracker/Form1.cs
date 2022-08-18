@@ -112,7 +112,7 @@ namespace TradeTracker
                     }
                 }
                 catch { }
-                MessageBox.Show("TradeWin is designed to be a free, open source trade logging application. This allows importing trade history from Fidelity (other brokers potentially coming), exporting/loading from TradeWin proprietary format (.tw) and more!\n\nTraders are intended to make trading decisions based on their own judgement. TradeWin is simply an additional performance monitoring tool for traders to log their trades on a free, offline platform.\n\nTradeWin will always be provided 100% free. Other trading journals will charge you a monthly subscription fee, usually more than $20/month, and withhold important performance metrics from you on free plans. If you would like to see continuous improvements, please consider donating.\nPayPal: adamgames69@gmail.com\nCashApp: $Adam129111", "Welcome to TradeWin! - " + versionString);
+                MessageBox.Show("TradeWin is designed to be a free, open source trade logging application. This allows importing trade history from Fidelity (other brokers potentially coming), exporting/loading from TradeWin proprietary format (.tw) and more!\n\nTraders are intended to make trading decisions based on their own judgement. TradeWin is simply an additional performance monitoring tool for traders to log their trades on a free, offline platform.", "Welcome to TradeWin! - " + versionString);
             }
             if (File.Exists(calenderPath))
             {
@@ -855,7 +855,6 @@ namespace TradeTracker
                         THistory.Rows[i].Cells["Earn"].Value = (q * ea).ToString();
                         double GainLoss = Math.Abs((double)((p * q) - (ea * q)));
                         THistory.Rows[i].Cells["GainLoss"].Value = Math.Round(GainLoss, 2).ToString();
-
                     }
                     else
                         THistory.Rows[i].Cells["GainLoss"].Value = "0";
@@ -1103,7 +1102,7 @@ namespace TradeTracker
             DialogResult dialogResult = MessageBox.Show("Clear trading calender?", "Confirm", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("You clicked yes");
+                MessageBox.Show("Calender cleared!");
                 if (File.Exists(calenderPath))
                 {
                     File.Copy(calenderPath, calenderPath + ".bak", true);
@@ -1144,7 +1143,6 @@ namespace TradeTracker
 
         private void button20_Click(object sender, EventArgs e)
         {
-            // performance stats
             Form6 form6 = new Form6(this);
             _ = form6.ShowDialog();
         }
@@ -1177,12 +1175,12 @@ namespace TradeTracker
                         MatchCollection match = Regex.Matches(fileContent, @":(.+?),"); // break file down into lines
                         //THistory.DataSource = null;
                         int counter;
-                        counter = Watch.Rows.Count > 1 ? Watch.Rows.Count - 1 : 0;
+                        counter = THistory.Rows.Count > 1 ? THistory.Rows.Count - 1 : 0;
                         for (int i = 0; i < match.Count; i++)
                             if (match[i].ToString().Contains(",") && match[i].ToString().Length > 2) // All compatible lines
                             {
-                                watchList.Rows.Add();
-                                Watch.Rows[counter].Cells["Column1"].Value = match[i].ToString().Substring(1, match[i].ToString().Length - 2);
+                                THistory.Rows.Add();
+                                THistory.Rows[counter].Cells["Column1"].Value = match[i].ToString().Substring(1, match[i].ToString().Length - 2);
                                 counter++;
                             }
                         reader.Close();
