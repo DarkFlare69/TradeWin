@@ -112,7 +112,7 @@ namespace TradeTracker
                     }
                 }
                 catch { }
-                MessageBox.Show("TradeWin is designed to be a free, open source trade logging application. This allows importing trade history from Fidelity, exporting/loading from TradeWin proprietary format (.tw) and more!\n\nTraders are intended to make trading decisions based on their own sources. TradeWin is simply an additional tool to keep for traders to keep an eye on their daytrades and log performance on a free, offline platform.\n\nNotable features include auto-saving and auto-loading the watchlist/history (configurable in settings), and importing/exporting to multiple file formats. Most other necessary basic features are available.", "Welcome to TradeWin! - " + versionString);
+                MessageBox.Show("TradeWin is designed to be a free, open source trade logging application. This allows importing trade history from Fidelity (other brokers potentially coming), exporting/loading from TradeWin proprietary format (.tw) and more!\n\nTraders are intended to make trading decisions based on their own judgement. TradeWin is simply an additional performance monitoring tool for traders to log their trades on a free, offline platform.\n\nTradeWin will always be provided 100% free. Other trading journals will charge you a monthly subscription fee, usually more than $20/month, and withhold important performance metrics from you on free plans. If you would like to see continuous improvements, please consider donating.\nPayPal: adamgames69@gmail.com\nCashApp: $Adam129111", "Welcome to TradeWin! - " + versionString);
             }
             if (File.Exists(calenderPath))
             {
@@ -1142,6 +1142,13 @@ namespace TradeTracker
 
         }
 
+        private void button20_Click(object sender, EventArgs e)
+        {
+            // performance stats
+            Form6 form6 = new Form6(this);
+            _ = form6.ShowDialog();
+        }
+
         private void stocksToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
         {
             stocksToolStripMenuItem.ForeColor = Color.White;
@@ -1365,7 +1372,7 @@ namespace TradeTracker
         }
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("TradeWin is a free, simple daytrade tracking tool written in Visual C#. The goal of this program is to provide a platform for daytraders to prepare for setups, log their trades, and import trading history. Logging trades helps with performance monitoring, and this program aims to provide a platform to store trades in an offline file format. Users are expected to only use this tool for inputting and reading personal trade data, not for making trading decisions.", "About TradeWin " + versionString);
+            MessageBox.Show("TradeWin is a free, simple daytrade tracking tool written in Visual C#. The goal of this program is to provide a free and robust platform for daytraders to prepare for setups, log their trades, and track performance statistics. Logging trades helps with performance monitoring, and this program aims to provide a platform to store trades in an offline file format. Users are expected to only use this tool for inputting and reading personal trade data, not for making trading decisions.\n\nTradeWin will always be provided 100% free. Other trading journals will charge you a monthly subscription fee, usually more than $20/m, and withhold important performance metrics from you on free plans. If you would like to see continuous improvements, please consider donating.\nPayPal: adamgames69@gmail.com\nCashApp: $Adam129111", "About TradeWin " + versionString);
         }
     }
 }

@@ -184,6 +184,7 @@ namespace TradeTracker
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.button20 = new System.Windows.Forms.Button();
             groupBox6 = new System.Windows.Forms.GroupBox();
             groupBox7 = new System.Windows.Forms.GroupBox();
             groupBox2 = new System.Windows.Forms.GroupBox();
@@ -1336,6 +1337,7 @@ namespace TradeTracker
             // splitContainer5.Panel1
             // 
             this.splitContainer5.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(68)))), ((int)(((byte)(92)))));
+            this.splitContainer5.Panel1.Controls.Add(this.button20);
             this.splitContainer5.Panel1.Controls.Add(this.monthCalendar1);
             this.splitContainer5.Panel1.Controls.Add(this.button19);
             this.splitContainer5.Panel1.Controls.Add(this.button18);
@@ -1773,6 +1775,19 @@ namespace TradeTracker
             this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
+            // button20
+            // 
+            this.button20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button20.BackColor = System.Drawing.Color.Silver;
+            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button20.Location = new System.Drawing.Point(239, 98);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(166, 45);
+            this.button20.TabIndex = 14;
+            this.button20.Text = "View Performance Statistics";
+            this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1965,6 +1980,7 @@ namespace TradeTracker
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button20;
     }
 }
 
