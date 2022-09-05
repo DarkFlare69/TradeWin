@@ -91,7 +91,7 @@ namespace TradeTracker
             }
             if (!File.Exists(watchPath) || new FileInfo(watchPath).Length < 17)
             {
-                File.WriteAllText(watchPath, ":AAPL,,,,,,,,,,,,,\n:QCOM,,,,,,,,,,,,,\n:MU,,,,,,,,,,,,,");
+                File.WriteAllText(watchPath, ":AAPL,,,,,,,,,,,,,\n:QCOM,,,,,,,,,,,,,\n:OXY,,,,,,,,,,,,,");
             }
             if (!File.Exists(historyPath))
             {
@@ -1138,7 +1138,7 @@ namespace TradeTracker
 
         private void backupCalenderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start("http://google.com");
         }
 
         private void button20_Click(object sender, EventArgs e)
@@ -1179,7 +1179,7 @@ namespace TradeTracker
                         for (int i = 0; i < match.Count; i++)
                             if (match[i].ToString().Contains(",") && match[i].ToString().Length > 2) // All compatible lines
                             {
-                                THistory.Rows.Add();
+                                history.Rows.Add();
                                 THistory.Rows[counter].Cells["Column1"].Value = match[i].ToString().Substring(1, match[i].ToString().Length - 2);
                                 counter++;
                             }

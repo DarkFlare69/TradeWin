@@ -15,7 +15,16 @@ namespace TradeWin
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            textBox1.Text = _form1Instance.THistory.Rows[0].Cells["Earnings"].Value.ToString();
+
+            for (int i = 0; i < _form1Instance.THistory.Rows.Count; i++)
+            {
+                if (_form1Instance.THistory.Rows[i].Cells["Price"].Value != null && _form1Instance.THistory.Rows[i].Cells["Earnings"].Value != null)
+                {
+                    textBox1.Text += _form1Instance.THistory.Rows[i].Cells["Earnings"].Value.ToString() + Environment.NewLine;
+                }
+            }
+        
+        
         }
     }
 }

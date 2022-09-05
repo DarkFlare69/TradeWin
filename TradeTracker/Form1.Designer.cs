@@ -34,29 +34,6 @@ namespace TradeTracker
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.GroupBox groupBox7;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.GroupBox groupBox2;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.GroupBox groupBox5;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -66,8 +43,46 @@ namespace TradeTracker
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.GroupBox groupBox7;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.GroupBox groupBox2;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.GroupBox groupBox5;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.Watch = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Entry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PositionType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ExitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.THistory = new System.Windows.Forms.DataGridView();
             this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,8 +95,8 @@ namespace TradeTracker
             this.Earn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EPS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GainLoss = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Strategy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MajorLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Strategy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Strengths = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Weaknesses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -144,6 +159,7 @@ namespace TradeTracker
             this.button12 = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.button20 = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
@@ -175,16 +191,6 @@ namespace TradeTracker
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.button20 = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Entry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PositionType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ExitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             groupBox6 = new System.Windows.Forms.GroupBox();
             groupBox7 = new System.Windows.Forms.GroupBox();
             groupBox2 = new System.Windows.Forms.GroupBox();
@@ -320,6 +326,93 @@ namespace TradeTracker
             this.Watch.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.Watch_RowsAdded);
             this.Watch.Enter += new System.EventHandler(this.Watch_Enter);
             // 
+            // Column1
+            // 
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.FillWeight = 35F;
+            this.Column1.HeaderText = "Symbol";
+            this.Column1.Name = "Column1";
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.FillWeight = 80F;
+            this.Column3.HeaderText = "Major Levels";
+            this.Column3.Name = "Column3";
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column2.FillWeight = 97F;
+            this.Column2.HeaderText = "Strategy Details";
+            this.Column2.Name = "Column2";
+            // 
+            // Entry
+            // 
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Entry.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Entry.FillWeight = 70F;
+            this.Entry.HeaderText = "Target Entry Price";
+            this.Entry.Name = "Entry";
+            this.Entry.Visible = false;
+            // 
+            // Notes
+            // 
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Notes.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Notes.HeaderText = "Notes";
+            this.Notes.Name = "Notes";
+            // 
+            // Actual
+            // 
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Actual.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Actual.FillWeight = 80F;
+            this.Actual.HeaderText = "Entry Price";
+            this.Actual.Name = "Actual";
+            // 
+            // PositionType
+            // 
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PositionType.DefaultCellStyle = dataGridViewCellStyle8;
+            this.PositionType.FillWeight = 60F;
+            this.PositionType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.PositionType.HeaderText = "Position Type";
+            this.PositionType.Items.AddRange(new object[] {
+            "Buy",
+            "Sell Short",
+            "Call",
+            "Put"});
+            this.PositionType.Name = "PositionType";
+            // 
+            // ExitPrice
+            // 
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ExitPrice.DefaultCellStyle = dataGridViewCellStyle9;
+            this.ExitPrice.FillWeight = 70F;
+            this.ExitPrice.HeaderText = "Target Exit Price";
+            this.ExitPrice.Name = "ExitPrice";
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.NullValue = "Log Trade";
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Column4.FillWeight = 65F;
+            this.Column4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Column4.HeaderText = "Trade Logger";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.Text = "Log Trade";
+            this.Column4.UseColumnTextForButtonValue = true;
+            // 
             // groupBox7
             // 
             groupBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(68)))), ((int)(((byte)(92)))));
@@ -372,39 +465,39 @@ namespace TradeTracker
             this.Earn,
             this.EPS,
             this.GainLoss,
-            this.Strategy,
             this.MajorLevels,
+            this.Strategy,
             this.Strengths,
             this.Weaknesses,
             this.Notes2});
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.THistory.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.THistory.DefaultCellStyle = dataGridViewCellStyle30;
             this.THistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.THistory.EnableHeadersVisualStyles = false;
             this.THistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(95)))), ((int)(((byte)(140)))));
             this.THistory.Location = new System.Drawing.Point(0, 0);
             this.THistory.MultiSelect = false;
             this.THistory.Name = "THistory";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.THistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle25;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.White;
-            this.THistory.RowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.THistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.White;
+            this.THistory.RowsDefaultCellStyle = dataGridViewCellStyle32;
             this.THistory.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
             this.THistory.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.THistory.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -418,111 +511,142 @@ namespace TradeTracker
             // 
             // Symbol
             // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Symbol.DefaultCellStyle = dataGridViewCellStyle15;
-            this.Symbol.FillWeight = 59F;
+            this.Symbol.FillWeight = 50F;
             this.Symbol.HeaderText = "Symbol";
             this.Symbol.Name = "Symbol";
             // 
             // Date
             // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Date.DefaultCellStyle = dataGridViewCellStyle16;
-            this.Date.FillWeight = 70F;
+            this.Date.FillWeight = 60F;
             this.Date.HeaderText = "Date";
             this.Date.Name = "Date";
             // 
             // Side
             // 
-            this.Side.FillWeight = 80F;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Side.DefaultCellStyle = dataGridViewCellStyle17;
+            this.Side.FillWeight = 70F;
             this.Side.HeaderText = "Position";
             this.Side.Name = "Side";
             // 
             // Quantity
             // 
-            this.Quantity.FillWeight = 50F;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle18;
+            this.Quantity.FillWeight = 30F;
             this.Quantity.HeaderText = "Qty";
             this.Quantity.Name = "Quantity";
             // 
             // Price
             // 
-            this.Price.FillWeight = 87F;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Price.DefaultCellStyle = dataGridViewCellStyle19;
+            this.Price.FillWeight = 60F;
             this.Price.HeaderText = "Entry Price";
             this.Price.Name = "Price";
             // 
             // Earnings
             // 
-            this.Earnings.FillWeight = 83F;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Earnings.DefaultCellStyle = dataGridViewCellStyle20;
+            this.Earnings.FillWeight = 60F;
             this.Earnings.HeaderText = "Exit Price";
             this.Earnings.Name = "Earnings";
             // 
             // Amount
             // 
-            dataGridViewCellStyle17.NullValue = null;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle21.NullValue = null;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle21;
             this.Amount.FillWeight = 80F;
             this.Amount.HeaderText = "Cost";
             this.Amount.Name = "Amount";
+            this.Amount.Visible = false;
             // 
             // Earn
             // 
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Earn.DefaultCellStyle = dataGridViewCellStyle22;
             this.Earn.FillWeight = 85F;
             this.Earn.HeaderText = "Earnings";
             this.Earn.Name = "Earn";
+            this.Earn.Visible = false;
             // 
             // EPS
             // 
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EPS.DefaultCellStyle = dataGridViewCellStyle23;
             this.EPS.FillWeight = 59F;
             this.EPS.HeaderText = "EPS $";
             this.EPS.Name = "EPS";
+            this.EPS.Visible = false;
             // 
             // GainLoss
             // 
-            dataGridViewCellStyle18.Format = "C2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.GainLoss.DefaultCellStyle = dataGridViewCellStyle18;
-            this.GainLoss.FillWeight = 59F;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle24.Format = "C2";
+            dataGridViewCellStyle24.NullValue = null;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GainLoss.DefaultCellStyle = dataGridViewCellStyle24;
+            this.GainLoss.FillWeight = 40F;
             this.GainLoss.HeaderText = "G/L $";
             this.GainLoss.Name = "GainLoss";
             // 
-            // Strategy
-            // 
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Strategy.DefaultCellStyle = dataGridViewCellStyle19;
-            this.Strategy.FillWeight = 93F;
-            this.Strategy.HeaderText = "Strategy";
-            this.Strategy.Name = "Strategy";
-            // 
             // MajorLevels
             // 
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MajorLevels.DefaultCellStyle = dataGridViewCellStyle20;
-            this.MajorLevels.FillWeight = 105F;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MajorLevels.DefaultCellStyle = dataGridViewCellStyle25;
+            this.MajorLevels.FillWeight = 90F;
             this.MajorLevels.HeaderText = "Major Levels";
             this.MajorLevels.Name = "MajorLevels";
             // 
+            // Strategy
+            // 
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Strategy.DefaultCellStyle = dataGridViewCellStyle26;
+            this.Strategy.FillWeight = 105F;
+            this.Strategy.HeaderText = "Strategy";
+            this.Strategy.Name = "Strategy";
+            // 
             // Strengths
             // 
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Strengths.DefaultCellStyle = dataGridViewCellStyle21;
-            this.Strengths.FillWeight = 90F;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Strengths.DefaultCellStyle = dataGridViewCellStyle27;
+            this.Strengths.FillWeight = 120F;
             this.Strengths.HeaderText = "Strengths";
             this.Strengths.Name = "Strengths";
             // 
             // Weaknesses
             // 
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Weaknesses.DefaultCellStyle = dataGridViewCellStyle22;
-            this.Weaknesses.FillWeight = 95F;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Weaknesses.DefaultCellStyle = dataGridViewCellStyle28;
+            this.Weaknesses.FillWeight = 120F;
             this.Weaknesses.HeaderText = "Weaknesses";
             this.Weaknesses.Name = "Weaknesses";
             // 
             // Notes2
             // 
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Notes2.DefaultCellStyle = dataGridViewCellStyle23;
-            this.Notes2.FillWeight = 124F;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Notes2.DefaultCellStyle = dataGridViewCellStyle29;
+            this.Notes2.FillWeight = 125F;
             this.Notes2.HeaderText = "Notes";
             this.Notes2.Name = "Notes2";
             // 
@@ -561,14 +685,14 @@ namespace TradeTracker
             this.IdentifiedStratTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.IdentifiedStratTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.IdentifiedStratTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(68)))), ((int)(((byte)(92)))));
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.IdentifiedStratTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.IdentifiedStratTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.IdentifiedStratTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.IdentifiedStratTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column5,
@@ -579,28 +703,28 @@ namespace TradeTracker
             this.Exclusions,
             this.AvgWin,
             this.AvgLoss2});
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.IdentifiedStratTable.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.IdentifiedStratTable.DefaultCellStyle = dataGridViewCellStyle34;
             this.IdentifiedStratTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.IdentifiedStratTable.EnableHeadersVisualStyles = false;
             this.IdentifiedStratTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(95)))), ((int)(((byte)(140)))));
             this.IdentifiedStratTable.Location = new System.Drawing.Point(0, 0);
             this.IdentifiedStratTable.MultiSelect = false;
             this.IdentifiedStratTable.Name = "IdentifiedStratTable";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.IdentifiedStratTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.IdentifiedStratTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.IdentifiedStratTable.Size = new System.Drawing.Size(405, 135);
             this.IdentifiedStratTable.TabIndex = 0;
             this.IdentifiedStratTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.IdentifiedStratTable_CellClick);
@@ -743,28 +867,28 @@ namespace TradeTracker
             this.StratLogPanel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.StratLogPanel.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.StratLogPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(68)))), ((int)(((byte)(92)))));
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.StratLogPanel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.StratLogPanel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.StratLogPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.StratLogPanel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StratName,
             this.Wins,
             this.AvgLoss,
             this.GainLosses});
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.StratLogPanel.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.StratLogPanel.DefaultCellStyle = dataGridViewCellStyle37;
             this.StratLogPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StratLogPanel.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.StratLogPanel.EnableHeadersVisualStyles = false;
@@ -772,14 +896,14 @@ namespace TradeTracker
             this.StratLogPanel.Location = new System.Drawing.Point(0, 0);
             this.StratLogPanel.MultiSelect = false;
             this.StratLogPanel.Name = "StratLogPanel";
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.StratLogPanel.RowHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.StratLogPanel.RowHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.StratLogPanel.Size = new System.Drawing.Size(405, 200);
             this.StratLogPanel.TabIndex = 0;
             // 
@@ -1076,8 +1200,8 @@ namespace TradeTracker
             // backupCalenderToolStripMenuItem
             // 
             this.backupCalenderToolStripMenuItem.Name = "backupCalenderToolStripMenuItem";
-            this.backupCalenderToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.backupCalenderToolStripMenuItem.Text = "Backup Calender";
+            this.backupCalenderToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.backupCalenderToolStripMenuItem.Text = "Help";
             this.backupCalenderToolStripMenuItem.Click += new System.EventHandler(this.backupCalenderToolStripMenuItem_Click);
             // 
             // button4
@@ -1265,6 +1389,21 @@ namespace TradeTracker
             this.splitContainer5.Size = new System.Drawing.Size(411, 421);
             this.splitContainer5.SplitterDistance = 155;
             this.splitContainer5.TabIndex = 0;
+            // 
+            // button20
+            // 
+            this.button20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button20.BackColor = System.Drawing.Color.Silver;
+            this.button20.Enabled = false;
+            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button20.Location = new System.Drawing.Point(239, 98);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(166, 45);
+            this.button20.TabIndex = 14;
+            this.button20.Text = "View Performance Statistics (Coming soon)";
+            this.button20.UseVisualStyleBackColor = false;
+            this.button20.Visible = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // monthCalendar1
             // 
@@ -1691,105 +1830,6 @@ namespace TradeTracker
             this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
-            // button20
-            // 
-            this.button20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button20.BackColor = System.Drawing.Color.Silver;
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button20.Location = new System.Drawing.Point(239, 98);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(166, 45);
-            this.button20.TabIndex = 14;
-            this.button20.Text = "View Performance Statistics";
-            this.button20.UseVisualStyleBackColor = false;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column1.FillWeight = 35F;
-            this.Column1.HeaderText = "Symbol";
-            this.Column1.Name = "Column1";
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column3.FillWeight = 80F;
-            this.Column3.HeaderText = "Major Levels";
-            this.Column3.Name = "Column3";
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column2.FillWeight = 97F;
-            this.Column2.HeaderText = "Strategy Details";
-            this.Column2.Name = "Column2";
-            // 
-            // Entry
-            // 
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Entry.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Entry.FillWeight = 70F;
-            this.Entry.HeaderText = "Target Entry Price";
-            this.Entry.Name = "Entry";
-            // 
-            // Notes
-            // 
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Notes.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Notes.HeaderText = "Notes";
-            this.Notes.Name = "Notes";
-            // 
-            // Actual
-            // 
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Actual.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Actual.FillWeight = 80F;
-            this.Actual.HeaderText = "Actual Entry Price";
-            this.Actual.Name = "Actual";
-            // 
-            // PositionType
-            // 
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PositionType.DefaultCellStyle = dataGridViewCellStyle8;
-            this.PositionType.FillWeight = 60F;
-            this.PositionType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PositionType.HeaderText = "Position Type";
-            this.PositionType.Items.AddRange(new object[] {
-            "Buy",
-            "Sell Short",
-            "Call",
-            "Put"});
-            this.PositionType.Name = "PositionType";
-            // 
-            // ExitPrice
-            // 
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ExitPrice.DefaultCellStyle = dataGridViewCellStyle9;
-            this.ExitPrice.FillWeight = 70F;
-            this.ExitPrice.HeaderText = "Target Exit Price";
-            this.ExitPrice.Name = "ExitPrice";
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.NullValue = "Log Trade";
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Column4.FillWeight = 65F;
-            this.Column4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Column4.HeaderText = "Trade Logger";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.Text = "Log Trade";
-            this.Column4.UseColumnTextForButtonValue = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1914,21 +1954,6 @@ namespace TradeTracker
         public System.Windows.Forms.Button button16;
         public System.Windows.Forms.DataGridView Watch;
         public System.Windows.Forms.DataGridView THistory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Side;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Earnings;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Earn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EPS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GainLoss;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Strategy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MajorLevels;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Strengths;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Weaknesses;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Notes2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
@@ -1983,6 +2008,21 @@ namespace TradeTracker
         private System.Windows.Forms.DataGridViewComboBoxColumn PositionType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExitPrice;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Side;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Earnings;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Earn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EPS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GainLoss;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MajorLevels;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Strategy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Strengths;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Weaknesses;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Notes2;
     }
 }
 
