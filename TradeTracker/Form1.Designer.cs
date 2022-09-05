@@ -95,8 +95,8 @@ namespace TradeTracker
             this.Earn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EPS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GainLoss = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MajorLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Strategy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MajorLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Strengths = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Weaknesses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -465,8 +465,8 @@ namespace TradeTracker
             this.Earn,
             this.EPS,
             this.GainLoss,
-            this.MajorLevels,
             this.Strategy,
+            this.MajorLevels,
             this.Strengths,
             this.Weaknesses,
             this.Notes2});
@@ -605,23 +605,23 @@ namespace TradeTracker
             this.GainLoss.HeaderText = "G/L $";
             this.GainLoss.Name = "GainLoss";
             // 
-            // MajorLevels
+            // Strategy
             // 
             dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MajorLevels.DefaultCellStyle = dataGridViewCellStyle25;
-            this.MajorLevels.FillWeight = 90F;
-            this.MajorLevels.HeaderText = "Major Levels";
-            this.MajorLevels.Name = "MajorLevels";
-            // 
-            // Strategy
-            // 
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Strategy.DefaultCellStyle = dataGridViewCellStyle26;
+            this.Strategy.DefaultCellStyle = dataGridViewCellStyle25;
             this.Strategy.FillWeight = 105F;
             this.Strategy.HeaderText = "Strategy";
             this.Strategy.Name = "Strategy";
+            // 
+            // MajorLevels
+            // 
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MajorLevels.DefaultCellStyle = dataGridViewCellStyle26;
+            this.MajorLevels.FillWeight = 90F;
+            this.MajorLevels.HeaderText = "Major Levels";
+            this.MajorLevels.Name = "MajorLevels";
             // 
             // Strengths
             // 
@@ -2018,8 +2018,8 @@ namespace TradeTracker
         private System.Windows.Forms.DataGridViewTextBoxColumn Earn;
         private System.Windows.Forms.DataGridViewTextBoxColumn EPS;
         private System.Windows.Forms.DataGridViewTextBoxColumn GainLoss;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MajorLevels;
         private System.Windows.Forms.DataGridViewTextBoxColumn Strategy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MajorLevels;
         private System.Windows.Forms.DataGridViewTextBoxColumn Strengths;
         private System.Windows.Forms.DataGridViewTextBoxColumn Weaknesses;
         private System.Windows.Forms.DataGridViewTextBoxColumn Notes2;

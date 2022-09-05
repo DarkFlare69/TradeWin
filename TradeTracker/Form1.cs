@@ -1138,7 +1138,7 @@ namespace TradeTracker
 
         private void backupCalenderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://google.com");
+            System.Diagnostics.Process.Start("https://www.reddit.com/r/RealDayTrading/comments/x6jde7/tradewin_free_offline_trading_journal_dashboard/");
         }
 
         private void button20_Click(object sender, EventArgs e)
@@ -1370,7 +1370,7 @@ namespace TradeTracker
         }
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("TradeWin is a free, simple daytrade tracking tool written in Visual C#. The goal of this program is to provide a free and robust platform for daytraders to prepare for setups, log their trades, and track performance statistics. Logging trades helps with performance monitoring, and this program aims to provide a platform to store trades in an offline file format. Users are expected to only use this tool for inputting and reading personal trade data, not for making trading decisions.\n\nTradeWin will always be provided 100% free. Other trading journals will charge you a monthly subscription fee, usually more than $20/m, and withhold important performance metrics from you on free plans. If you would like to see continuous improvements, please consider donating.\nPayPal: adamgames69@gmail.com\nCashApp: $Adam129111", "About TradeWin " + versionString);
+            MessageBox.Show("TradeWin is a free, simple daytrade tracking tool written in Visual C#. The goal of this program is to provide a free and robust platform for daytraders to prepare for setups, log their trades, and track performance statistics. Logging trades helps with performance monitoring, and this program aims to provide a platform to store trades in an offline file format. Users are expected to only use this tool for inputting and reading personal trade data, not for making trading decisions.\n\nTradeWin will always be provided 100% free. Other trading journals will charge you a monthly subscription fee, usually more than $20/m, and withhold important performance metrics from you on free plans. If you like this software, please consider donating.\nPayPal: adamgames69@gmail.com\nCashApp: $Adam129111", "About TradeWin " + versionString);
         }
     }
 }
