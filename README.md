@@ -24,6 +24,9 @@
 
 Normal View:
 
+![image](https://github.com/DarkFlare69/TradeWin/assets/10453867/e885a583-2723-4d13-ac5d-acc1cbe54372)
+
+(Old View):
 ![image](https://user-images.githubusercontent.com/10453867/126365860-bef265c7-da84-495b-a222-0caa293e8ba4.png)
 
  
